@@ -1,38 +1,31 @@
 package service.menu;
 
-
 import java.sql.Connection;
 
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
 
 import encoding.SHA256;
-import model.menu.AdVO;
-import model.menu.ProcessVO;
 
 public class LoginDAO {
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
-	private String url;
-	private String dbUser;
-	private String dbPw;
+	private Context init = null;
+	private DataSource ds = null;
 
-	
 	public LoginDAO() {
 		try {
-			url = "jdbc:mysql://localhost:3306/homepage?useSSL=false";
-			dbUser = "root";
-			dbPw= "rootroot";
-			
-			Class.forName("com.mysql.jdbc.Driver");
-		}catch (Exception e) {
+
+			init = new InitialContext();
+			ds = (DataSource) init.lookup("java:comp/env/jdbc/MySQL");
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -43,32 +36,38 @@ public class LoginDAO {
 		String hashpw = SHA256.encodeSha256(pw);
 
 		try {
-			conn = DriverManager.getConnection(url, dbUser, dbPw);
-			
+			conn = ds.getConnection();
+
 			String sql = "select name, num from user where id = ? and pw = ?";
-			
+
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setString(1, id);
 			pstmt.setString(2, hashpw);
-			
+
 			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
+
+			if (rs.next()) {
 				name = rs.getString("name");
 				num = rs.getString("num");
 				session.setAttribute("num", num);
 			}
-			
-			rs.close();
-			pstmt.close();
-			conn.close();
+
+			if (pstmt != null) {
+				pstmt.close();
+			}
+
+			if (rs != null) {
+				rs.close();
+			}
+
+			if (conn != null) {
+				conn.close();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		return name;
 	}
 }
-	
