@@ -20,7 +20,7 @@
 <body style="text-align:center;">
 	<br>
 	
-	<img src="/project2/homepage/images/index/logo.png" id="logo">
+	<img src="/project2/images/index/logo.png" id="logo">
 	
 	<br><br>
 	
@@ -31,7 +31,7 @@
 	
 	<button id="btn"><b>홈으로가기</b></button>
 	
-	<script src="/project2/homepage/js/jquery-3.6.0.min.js"></script>
+	<script src="/project2/js/jquery-3.6.0.min.js"></script>
 	 <script>
         $(function () {
 

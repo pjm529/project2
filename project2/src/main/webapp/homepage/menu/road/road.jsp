@@ -39,7 +39,7 @@
 		     	<jsp:include page="map.jsp"></jsp:include>
 		     </div>
 		     <br>
-		     <img src="../../images/road.png" style="margin-left: 220px;">   
+		     <img src="/project2/images/road.png" style="margin-left: 220px;">   
         </div>
 		        
 		<div id="footer">
