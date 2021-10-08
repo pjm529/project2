@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import service.menu.LoginDAO;
  
-@WebServlet("/login")
-public class Login extends HttpServlet {
+@WebServlet("/log/*")
+public class Log extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	LoginDAO loginDAO;
@@ -41,20 +41,35 @@ public class Login extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		String checkbox = request.getParameter("checkbox");
+		String action = request.getPathInfo(); // URL에서 요청명을 가져옴.
 		
-		String name = loginDAO.login(id, pw, session);
-		
-		if(name != null) {
-			session.setAttribute("id", id);
-			session.setAttribute("name", name);
-			session.setAttribute("checkbox", checkbox);
-			nextPage = "/homepage/logProcess/loginSuccess.jsp";
-		} else{
-			nextPage = "/homepage/logProcess/loginFail.jsp";
+		if (action == null || action.equals("/login")) {
+			String id = request.getParameter("id");
+			String pw = request.getParameter("pw");
+			String checkbox = request.getParameter("checkbox");
+			
+			String name = loginDAO.login(id, pw, session);
+			
+			if(name != null) {
+				session.setAttribute("id", id);
+				session.setAttribute("name", name);
+				session.setAttribute("checkbox", checkbox);
+				nextPage = "/homepage/logProcess/loginSuccess.jsp";
+			} else{
+				nextPage = "/homepage/logProcess/loginFail.jsp";
+			}
+			
+		} else if (action.equals("/logout")) {
+			
+			nextPage = "/homepage/logProcess/logout.jsp";
+			
+		} else {
+			
+			nextPage = "/homepage/index.jsp";
+			
 		}
+		
+		
 		
 		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage); 
 		dispatch.forward(request, response);

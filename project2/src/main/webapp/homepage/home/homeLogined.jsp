@@ -15,7 +15,9 @@
 		
 		<div id="checkbox" style="margin-left: 27px;">
 			<span class="search">
-				<a href="/project2/member/viewMy?num=<%=sessNum %>">마이페이지</a> / <a href="/project2/member/listMembers">회원관리</a> / <a href="/project2/homepage/logProcess/logout.jsp">로그아웃</a>
+				<a href="/project2/member/viewMy?num=<%=sessNum %>">마이페이지</a> / 
+				<a href="/project2/member/listMembers">회원관리</a> / 
+				<a href="/project2/log/logout">로그아웃</a>
 			</span>
 		</div>
 <% 
@@ -28,7 +30,7 @@
  
  		<div id="checkbox" style="margin-left: 60px;">
 			<span class="search"> 
-				<a href="/project2/member/viewMy?num=<%=sessNum %>">마이페이지</a> / <a href="/project2/homepage/logProcess/logout.jsp">로그아웃</a>
+				<a href="/project2/member/viewMy?num=<%=sessNum %>">마이페이지</a> / <a href="/project2/log/logout">로그아웃</a>
 			</span>
 		</div>
 <%}%>

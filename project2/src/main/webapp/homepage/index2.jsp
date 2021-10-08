@@ -147,9 +147,9 @@
                 <div id="game">
                     <p>게임</p>
                     <hr>
-                    <span><a href="game/rsp.html">가위바위보</a></span><br>
-                    <span><a href="game/worldcup.html">이상형 월드컵</a></span><br>
-                    <span><a href="game/race.html?#">경주 게임</a></span>
+                    <span><a href="/project2/homepage/game/rsp.html">가위바위보</a></span><br>
+                    <span><a href="/project2/homepage/game/worldcup.html">이상형 월드컵</a></span><br>
+                    <span><a href="/project2/homepage/game/race.html?#">경주 게임</a></span>
                 </div>
 
 
@@ -207,7 +207,7 @@
     			alert("로그인 정보가 올바르지 않습니다.");
     		} else {
     			 $("form").attr("onsubmit", "return true;");
-    			$("form").attr("action", "/project2/login").submit();
+    			$("form").attr("action", "/project2/log/login").submit();
     			
     		}
 			
