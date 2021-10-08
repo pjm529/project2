@@ -1,10 +1,9 @@
 package service;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -16,36 +15,35 @@ public class LogInDAO {
 	private ResultSet rs = null;
 	private Context init = null;
 	private DataSource ds = null;
-	
+
 	public LogInDAO() {
 		try {
 
 			init = new InitialContext();
 			ds = (DataSource) init.lookup("java:comp/env/jdbc/MySQL");
 
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	
-	public int Login(String userId, String userPw){
-		
+	public int Login(String userId, String userPw) {
+
 		try {
 			String sql = "select * from user where id = ? and pw = ?";
-			
+
 			conn = ds.getConnection();
-			
+
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
 			pstmt.setString(2, userPw);
-			
+
 			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
+
+			if (rs.next()) {
 				return 1;
 			}
-			
+
 			if (pstmt != null) {
 				pstmt.close();
 			}
@@ -57,10 +55,10 @@ public class LogInDAO {
 			if (conn != null) {
 				conn.close();
 			}
-			
-		} catch(Exception e) {
+
+		} catch (Exception e) {
 			System.out.println("아이디 비교 실패");
-		}		
+		}
 		return 0;
 	}
 }

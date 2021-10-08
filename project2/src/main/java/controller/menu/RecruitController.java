@@ -2,8 +2,6 @@ package controller.menu;
 
 import java.io.IOException;
 
-import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,13 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.menu.AdVO;
-import model.menu.RecruitVO;
 import service.menu.RecruitDAO;
 
 @WebServlet("/introduce/*")
 public class RecruitController extends HttpServlet {
-	
+
 	private static final long serialVersionUID = 1L;
 	RecruitDAO recruitDAO;
 
@@ -38,33 +34,34 @@ public class RecruitController extends HttpServlet {
 		doHandle(request, response, session);
 	}
 
-	private void doHandle(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws ServletException, IOException {
-		
+	private void doHandle(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+			throws ServletException, IOException {
+
 		String nextPage = null;
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		
+
 		String action = request.getPathInfo(); // URL에서 요청명을 가져옴.
-		
-		if(action == null || action.equals("/introduce")) { // 최초 요청이거나 listMembers.do일때
-			
+
+		if (action == null || action.equals("/introduce")) { // 최초 요청이거나 listMembers.do일때
+
 			nextPage = "/homepage/menu/introduce/introduce.jsp";
-			
-		} else if(action.equals("/introduce2")) {
-			
+
+		} else if (action.equals("/introduce2")) {
+
 			nextPage = "/homepage/menu/introduce/introduce2.jsp";
-			
-		} else if(action.equals("/introduce3")) {
-			
+
+		} else if (action.equals("/introduce3")) {
+
 			nextPage = "/homepage/menu/introduce/introduce3.jsp";
-			
+
 		} else {
-			
+
 			nextPage = "/homepage/menu/introduce/introduce.jsp";
-			
+
 		}
-		
-		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage); 
+
+		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
 		dispatch.forward(request, response);
 	}
 
