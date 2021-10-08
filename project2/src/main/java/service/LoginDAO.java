@@ -1,5 +1,6 @@
 package service;
 
+
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
@@ -7,16 +8,19 @@ import java.sql.ResultSet;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
-public class LogInDAO {
+import encoding.SHA256;
+
+public class LoginDAO {
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	private Context init = null;
 	private DataSource ds = null;
 
-	public LogInDAO() {
+	public LoginDAO() {
 		try {
 
 			init = new InitialContext();
@@ -27,21 +31,27 @@ public class LogInDAO {
 		}
 	}
 
-	public int Login(String userId, String userPw) {
+	public String login(String id, String pw, HttpSession session) {
+		String name = null;
+		String num = null;
+		String hashpw = SHA256.encodeSha256(pw);
 
 		try {
-			String sql = "select * from user where id = ? and pw = ?";
-
 			conn = ds.getConnection();
 
+			String sql = "select name, num from user where id = ? and pw = ?";
+
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
-			pstmt.setString(2, userPw);
+
+			pstmt.setString(1, id);
+			pstmt.setString(2, hashpw);
 
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				return 1;
+				name = rs.getString("name");
+				num = rs.getString("num");
+				session.setAttribute("num", num);
 			}
 
 			if (pstmt != null) {
@@ -55,10 +65,10 @@ public class LogInDAO {
 			if (conn != null) {
 				conn.close();
 			}
-
 		} catch (Exception e) {
-			System.out.println("아이디 비교 실패");
+			e.printStackTrace();
 		}
-		return 0;
+
+		return name;
 	}
 }
