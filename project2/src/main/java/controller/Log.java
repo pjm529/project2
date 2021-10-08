@@ -61,7 +61,8 @@ public class Log extends HttpServlet {
 			
 		} else if (action.equals("/logout")) {
 			
-			nextPage = "/homepage/logProcess/logout.jsp";
+			session.invalidate();
+			nextPage = "/homepage/index.jsp";
 			
 		} else {
 			
