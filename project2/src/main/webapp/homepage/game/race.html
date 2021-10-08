@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경주게임</title>
+
+    <link rel="stylesheet" href="/project/homepage/css/race.css">
+</head>
+
+<body>
+
+    <div id="wrap">
+        <div id="header">
+
+            <div id="logo">
+                <a href="/project/homepage/index.jsp"><img src="/project/homepage/images/index/logo.png" id="logo"></a>
+            </div>
+            <hr>
+        </div>
+
+
+        <div id="container">
+
+            <div id="display">
+
+                <div id="player_track1">
+                    <div id="player_1">
+                        <img src="/project/homepage/images/race/player_1.png" class="player">
+                    </div>
+                </div>
+
+                <div id="player_track2">
+                    <div id="player_2">
+                        <img src="/project/homepage/images/race/player_2.png" class="player">
+                    </div>
+                </div>
+
+                <div id="player_track3">
+                    <div id="player_3">
+                        <img class="player">
+                    </div>
+                </div>
+
+                <div id="player_track4">
+                    <div id="player_4">
+                        <img class="player">
+                    </div>
+                </div>
+
+                <div id="player_track5">
+                    <div id="player_5">
+                        <img class="player">
+                    </div>
+                </div>
+
+                <div id="player_track6">
+                    <div id="player_6">
+                        <img class="player">
+                    </div>
+                </div>
+
+            </div>
+            <br>
+
+            <div id="control">
+                <div>
+                    <form action="#">
+                        <input type="text" id="player_num" placeholder="인원 수(2~6)" autocomplete="off">
+                        <button type="submit" id="ready"><b>READY</b></button>
+
+                    </form>
+                </div>
+                <div id="playbtn">
+                    <button id="start"><b>START</b></button>
+                    <button id="reset"><b>RESET</b></button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/project/homepage/js/jquery-3.6.0.min.js"></script>
+
+    <script>
+        let speed = [];
+        let player = [];
+        let move_player = []; //누적 움직인거리
+
+        let winner = 0; // 우승주자 인덱스
+        let track = 1360;  // 경기장 길이
+        let line1 = track / 4; // 경기장 1/4지점
+        let line2 = track / 2; // 경기장 1/2지점
+        let line3 = track * (3 / 4); // 경기장 3/4지점
+        let first = 0;  //선두주자
+        let rpm = 0; //speed 단계
+        let player_num = 0; //player 인원 수 
+
+        $("#player_track3, #player_track4, #player_track5, #player_track6").hide();
+
+        $("#start, #reset, #ready").mouseover(function () {
+            $(this).css({
+                "background-color": "rgba(108, 117, 125, 1)"
+            });
+        });
+
+        $("#start, #reset, #ready").mouseleave(function () {
+            $(this).css({
+                "background-color": "rgba(108, 117, 125, 0.5)"
+            });
+        });
+
+        $("#start").click(function () {
+            if (player_num == 0) {
+                alert("입력값을 확인해주세요")
+
+            } else {
+                play();
+                $("#start").off("click");
+                $("#start").off("mouseover");
+                $("#ready").off("click");
+                $("#ready").off("mouseover");
+            }
+        });
+
+        $("#reset").click(function () {
+            window.location.reload();
+        });
+
+        $("#ready").click(function () {
+            if (document.getElementById('player_num').value < 2 || document.getElementById('player_num').value > 6) {
+                alert("입력값을 확인해주세요")
+            } else {
+                $("#player_track3, #player_track4, #player_track5, #player_track6").hide();
+
+
+                player_num = document.getElementById('player_num').value;
+                showimg();
+            }
+        });
+
+        // 시작
+        function play() {
+            init();
+            race();
+        }
+        // 경기 진행
+        function race() {
+
+            if (first < track) { // 제일 빠른 동물이 결승선을 통과하지 않았다면
+                // 시작할땐 rpm 0단계
+
+                if (first > line3) { // 선두주자가 line3을 지났다면 동물들의 rpm 3단계
+                    rpm = 3;
+                } else if (first > line2) { // 선두주자가 line2을 지났다면 동물들의 rpm 2단계
+                    rpm = 2;
+                } else if (first > line1) { // 선두주자가 line1을 지났다면 동물들의 rpm 1단계
+                    rpm = 1;
+                }
+
+                for (let i = 0; i < player_num; i++) {
+                    move_player[i] += speed[i][rpm]; // 각 player별 위치에서 speed만큼 움직일 거리 추가
+                    // console.log(move_player)
+                    if (first < move_player[i]) { // 제일 많이 움직인 거리의 player 찾기
+                        first = move_player[i]; // best에 선두주자의 움직인 거리 삽입
+                        winner = i; // 선두주자 index
+                    }
+                    player[i].style.marginLeft = move_player[i] + "px";  // 움직일 거리 만큼 이동
+                }
+                setTimeout(race, 10);  // 10msec뒤 race다시 실행, 숫자 조절시 게임 진행속도 조절가능(재귀함수)
+            } else {
+                // 경기 종료
+                alert((winner + 1) + "번 주자가 이겼습니다 !");
+                return;
+            }
+        }
+
+        function init() {
+            for (let i = 0; i < player_num; i++) {
+                player[i] = document.getElementById("player_" + (i + 1)); // img 정보가져오기
+            }
+
+            //단계별 speed 지정
+            for (let i = 0; i < player_num; i++) {
+                for (let j = 0; j < 4; j++) {
+                    speed[i][j] = Math.random() * (1) + Math.random() * (j + 1) + .5;
+                }
+            }
+
+        }
+
+        function showimg() {
+
+            for (let i = 0; i < player_num; i++) {
+                speed[i] = Array(4);
+            }
+
+            for (let i = 0; i < player_num; i++) {
+                move_player[i] = 0;
+            }
+
+            for (let i = 2; i < player_num; i++) {
+                $("#player_track" + (i + 1)).fadeIn(500, "linear");
+            }
+
+            for (let i = 2; i < player_num; i++) {
+                $("#player_" + (i + 1) + " img").attr("src", "/project/homepage/images/race/player_" + (i + 1) + ".png");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

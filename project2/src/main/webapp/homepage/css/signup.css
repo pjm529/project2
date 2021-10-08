@@ -1,0 +1,216 @@
+body{
+    text-align: center;
+    display: flex;
+    justify-content: center; 
+    flex-direction: column;
+    background-color: #eee;
+
+}
+
+#wrap{
+    display: block;
+    padding:20px;
+    width: 690px;
+    margin: 0 auto;
+    /* width: 750px; */
+    /* border: 3px solid #eee; */
+    /* background-color: #eee; */
+}
+
+.err_id, .err_id2, .err_pw, .err_chkpw, .err_name, .err_birth, .err_gender, .err_phone, .err_email{
+    /* border: 1px solid black; */
+    height: 30px;
+}
+
+#header{
+    /* border: 1px solid black;
+    background-color: rgb(155, 205, 255); */
+    height: 60px;
+}
+
+#container{
+    /* border: 1px solid blue; */
+    /* background-color: rgb(200,225,245); */
+
+    height: auto;
+    padding: 20px;
+    /* text-align: center; */
+    
+}
+
+#inputid, #inputpw, #inputchkpw, #inputname, #inputbirth, #inputgender, #inputphone, #inputemail{
+    margin-top: 5px;
+}
+
+#inputpw{
+    margin-top: 0;
+}
+
+.title_id{
+    margin-right: 32%;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.title_pw {
+    margin-right: 30%;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.title_chkpw {
+    margin-right: 21%;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.title_name{
+    margin-right: 34%;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.title_phone{
+    margin-right: 30%;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.title_birth{
+    margin-right: 30%;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.title_gender{
+    margin-right: 34%;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.title_email{
+    margin-right: 32%;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.text_err_id, .text_err_id2{
+    color:red;
+    font-size: 13px;
+    margin-right: 13%;
+
+}
+
+
+.text_err_pw{
+    color:red;
+    font-size: 13px;
+    margin-right: 11%;
+
+}
+
+.text_err_chkpw{
+    color:red;
+    font-size: 13px;
+    margin-right: 11%;
+
+}
+
+.text_err_gender{
+    color:red;
+    font-size: 13px;
+    margin-right: 20%;
+}
+
+.text_err_name{
+    color:red;
+    font-size: 13px;
+    margin-right: 8%;
+}
+
+.text_err_phone{
+    color:red;
+    font-size: 13px;
+    margin-right: 9%;
+}
+
+.text_err_email{
+    color:red;
+    font-size: 13px;
+    margin-right: 18%;
+}
+
+.text_err_birth{
+    color:red;
+    font-size: 13px;
+    margin-right: 16%;
+}
+
+
+#id, #pw, #chkpw, #name, #phone, #sel_email{
+    width: 250px;
+    height: 30px;
+    border: 1px solid rgb(214, 214, 214);
+    
+}
+
+#email{
+	width: 130px;
+    height: 30px;
+    border: 1px solid rgb(214, 214, 214);
+}
+
+#email_domain{
+    height: 34px;
+    border: 1px solid rgb(214, 214, 214);
+    width: 115px;
+}
+
+#year{
+    height: 30px;
+    border: 1px solid rgb(214, 214, 214);
+    width: 85px;
+}
+
+#day{
+	height: 34px;
+	border: 1px solid rgb(214, 214, 214);
+    width: 77px;
+}
+
+#month{
+    height: 34px;
+    border: 1px solid rgb(214, 214, 214);
+    width: 77px;
+}
+
+#gender{
+    height: 34px;
+    border: 1px solid rgb(214, 214, 214);
+    width: 256px;
+}
+
+#btn{
+    margin-top : 10px;
+    height: 50px;
+    width: 255px;
+    background-color: rgb(155, 205, 255);
+    border: none;
+}
+
+#update_btn, #list_btn, #delete_btn, #search_pw_btn{
+	margin-top : 10px;
+    height: 50px;
+    width: 255px;
+    background-color: rgb(155, 205, 255);
+    border: none;
+}
+#footer{
+    /* border: 1px solid orange; */
+    text-align: center;
+    background: rgb(228, 228, 228);
+}
+
+#footer p{
+    font-size: 12px;
+}

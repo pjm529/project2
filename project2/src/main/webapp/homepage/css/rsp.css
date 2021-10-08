@@ -1,0 +1,159 @@
+body{
+    text-align: center;
+    display: flex;
+    justify-content: center; 
+    flex-direction: column;
+}
+
+#logo{
+    
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: white;
+    
+}
+
+#wrap{
+    display: block;
+    padding:20px;
+    width: 690px;
+    margin: 0 auto;
+    /* width: 750px; */
+    /* border: 1px solid black; */
+    background-color: rgb(197, 206, 238);
+}
+
+
+
+#header{
+    /* border: 1px solid black; */
+    background-color: rgb(155, 205, 255);
+    height: 60px;
+}
+
+#container{
+    /* border: 1px solid blue; */
+    background-color: rgb(200,225,245);
+
+    height: 450px;
+    padding: 20px;
+    /* text-align: center; */
+    
+}
+
+#display {
+    display: flex;
+    /* border: 1px solid black; */
+    width: 650px;
+    height: 298px;
+}
+
+#vs {
+    display: inline-block;
+    width: 50px;
+    height: 298px;
+    margin-left: 1px;
+    margin-right: 1px;
+    /* border: 1px solid black; */
+}
+
+#h1{
+    margin-top: 120px;
+}
+
+#user, #com{
+    padding: 10px;
+    /* border: 1px solid black; */
+    width: 308px;
+    height: 278px;
+    display: inline-block;
+    background-color: rgb(214, 213, 213);
+}
+
+#userback, #comback{
+    width: 278px;
+    height: 278px;
+    background-color: #fff;
+}
+
+
+
+#control{
+    /* border: 1px solid black; */
+    width: 300px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 27%;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+#footer{
+    /* border: 1px solid black; */
+    height: 140px;
+    background-color: rgb(155, 205, 255);
+
+}
+
+#rock, #sissors, #paper, #reset{
+    width: 90px;
+    height: 50px;
+    background-color: rgba(108, 117, 125, 0.5);
+    border: none;
+    border-radius: 10%;
+    color: white;
+}
+
+#result{
+    margin-top: 10px;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-around;
+}
+
+.win, .draw, .lose, #winmsg, #wincount, #drawmsg, #drawcount, #losemsg, #losecount{
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.win { 
+    color: #fff; 
+    text-shadow: /* White glow */ 0 0 7px #fff, 
+    0 0 10px #fff, 
+    0 0 21px #fff,
+    0 0 42px #0fa, 
+    0 0 82px #0fa, 
+    0 0 92px #0fa, 
+    0 0 102px #0fa, 
+    0 0 151px #0fa; 
+    
+}
+
+.lose {
+    color: #fff; 
+    text-shadow: /* White glow */ 0 0 7px #fff, 
+    0 0 10px #fff, 
+    0 0 21px #fff,
+    0 0 42px rgb(255, 0, 64),
+    0 0 82px rgb(255, 0, 64), 
+    0 0 92px rgb(255, 0, 64),
+    0 0 102px rgb(255, 0, 64),
+    0 0 151px rgb(255, 0, 64);
+}
+
+.draw {
+    color: #fff; 
+    text-shadow: /* White glow */ 0 0 7px #fff, 
+    0 0 10px #fff, 
+    0 0 21px #fff,
+    0 0 42px #000,
+    0 0 82px #000,
+    0 0 92px #000,
+    0 0 102px #000,
+    0 0 151px #000;
+}
+
+#reset{
+    margin-top: 10px;
+}

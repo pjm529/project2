@@ -1,0 +1,16 @@
+#header{
+	 width: 500px;
+	 margin-left: 37%
+}
+
+#content{
+	border: solid 1px black; 
+	width: 500px; 
+	height: 400px; 
+	margin-left: 37%;
+	background-color: white
+}
+
+#content input{
+	width: 300px;
+}

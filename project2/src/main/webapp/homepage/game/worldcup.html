@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이상형 월드컵</title>
+    <link rel="stylesheet" href="/project/homepage/css/worldcup.css">
+
+</head>
+
+<body>
+    <script src="/project/homepage/js/jquery-3.6.0.min.js"></script>
+    <script src="/project/homepage/js/worldcup.js"></script>
+
+    <div id="logo">
+        <a href="/project/homepage/index.jsp"><img src="/project/homepage/images/index/logo.png" id="logo"></a>
+    </div>
+
+    <div id="wrap">
+
+
+        <div id="header">
+            <h1>이상형 월드컵</h1>
+        </div>
+
+        <hr>
+
+        <div id="container">
+
+            <div id="display">
+
+                <div id="player1">
+                    <!-- player1 이미지 배경  -->
+                    <div id="play1back">
+                        <span id="player1img"></span>
+                    </div>
+
+                </div>
+
+                <div id="vs">
+
+                    <h1 id="h1">VS</h1>
+
+                </div>
+
+                <div id="player2">
+                    <!-- player2 이미지 배경  -->
+                    <div id="play2back">
+                        <span id="player2img"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="winner">
+
+                <div id="winnerback" class="boxwin">
+
+                    <span id="winnerimg"></span>
+
+                </div>
+
+            </div>
+
+            <div id="control">
+
+                <button id="start"><b>START</b></button>
+                <button id="reset"><b>RESET</b></button>
+
+            </div>
+
+        </div>
+
+        <div id="footer">
+
+            <div class="round">
+
+                <h2 id="roundmsg">16강</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        $(function () {
+            let play1 = 0;
+            let play2 = 1;
+            let num1;
+            let num2;
+            let round = 16;
+            let cnt = 16;
+
+            $("#winner, #roundmsg").hide();
+
+            $("#start").click(function () {
+                makeImgNum();
+                show();
+                $("#roundmsg").fadeIn(500, "linear");
+
+                $("#start").off("click");
+                $("#start").off("mouseover");
+            });
+
+            $("#reset").click(function () {
+                window.location.reload();
+            });
+
+            function show() {
+                num1 = select(play1, round);
+                num2 = select(play2, round);
+
+                play1 += 2;
+                play2 += 2;
+
+                $("#player1img").html("<img src='/project/homepage/images/worldcup/player_" + num1 + ".png' alt=''  height = '278px'>");
+                $("#player2img").html("<img src='/project/homepage/images/worldcup/player_" + num2 + ".png' alt=''  height = '278px'>");
+                $("#player1img, #player2img").hide();
+                $("#player1img, #player2img").fadeIn(500, "linear");
+            }
+
+            $("#player1img").click(function () {
+                win(num1, round);
+                cnt--
+                if (round == 2) {
+                    winner(num1);
+                    return;
+                }
+                if (cnt == 8) {
+                    setRound(8)
+                } else if (cnt == 4) {
+                    setRound(4);
+                } else if (cnt == 2) {
+                    setRound(2);
+                }
+                show();
+            });
+
+            $("#player2img").click(function () {
+                win(num2, round);
+                cnt--
+                if (round == 2) {
+                    winner(num2);
+                    return;
+                }
+                if (cnt == 8) {
+                    setRound(8);
+                } else if (cnt == 4) {
+                    setRound(4);
+                } else if (cnt == 2) {
+                    setRound(2);
+                }
+                show();
+            });
+
+            function winner(num) {
+                $("#roundmsg").hide();
+                $("#winnerimg").html("<img src='/project/homepage/images/worldcup/player_" + num + ".png' alt=''  height = '278px'>");
+                $("#display, #start, #reset").fadeOut(500, "linear");
+                $("#winner, #reset").delay(1000).fadeIn(1000, "linear");
+                $("#roundmsg").delay(1000).text("우승").fadeIn(1000, "linear");
+            }
+
+            $("#start, #reset").mouseover(function () {
+                $(this).css({
+                    "background-color": "rgba(108, 117, 125, 1)"
+                });
+            });
+
+            $("#start, #reset").mouseleave(function () {
+                $(this).css({
+                    "background-color": "rgba(108, 117, 125, 0.5)"
+                });
+            });
+
+            $("#player1img").mouseover(function () {
+                $(this).css({
+                    "background-color": "rgba(,,, 0.5)"
+                });
+            });
+
+            function setRound(roundNum) {
+                round = roundNum;
+                play1 = 0;
+                play2 = 1;
+
+                $("#roundmsg").hide();
+
+                if (roundNum != 2) {
+                    $("#roundmsg").text(roundNum + "강").fadeIn(500, "linear");
+                } else {
+                    $("#roundmsg").text("결승").fadeIn(500, "linear");
+                }
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>

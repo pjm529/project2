@@ -1,0 +1,197 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<% session.removeAttribute("search_id"); %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>영남인재교육원 : 비밀번호찾기</title>
+<link rel="stylesheet" href="/project2/homepage/css/signup.css">
+</head>
+
+<body>
+    <script src="/project2/homepage/js/jquery-3.6.0.min.js"></script>
+
+    <div id="wrap">
+
+        <div id="header">
+            <a href="/project2/index"><img src="/project2/homepage/images/index/logo.png" id="logo"></a>
+        </div>
+
+        <hr>
+
+        <div id="container">
+
+            <form action="insertProcess.jsp" method="POST">
+
+                <div id="userinfo">
+
+                    <div id="inputname">
+                    
+                    	<h4 class="title_id">
+                            <label for="id">아이디</label>
+                        </h4>
+
+                        <span>
+                            <input id="id" name="id" type="text" autocomplete="off" maxlength="12">
+                        </span>
+
+                        <div class="err_id">
+
+                            <span class="text_err_id">
+                                아이디를 6~12자 입력하세요.
+                            </span>
+
+                        </div>
+
+                        <h4 class="title_name">
+                            <label for="name">이름</label>
+                        </h4>
+
+                        <span>
+                            <input id="name" name="name" type="text" autocomplete="off" maxlength="6">
+                        </span>
+
+                        <div class="err_name">
+
+                            <span class="text_err_name">
+                                이름을 6글자 이하로 입력해주세요.
+                            </span>
+                            
+                        </div>
+
+                    </div>
+                    
+                    <div id="inputphone">
+
+                        <h4 class="title_phone">
+                            <label for="phone">휴대전화</label>
+                        </h4>
+
+                        <span>
+                            <input id="phone" name="phone" type="text" autocomplete="off" maxlength="11">
+                        </span>
+
+                        <div class="err_phone">
+
+                            <span class="text_err_phone">
+                                전화번호을 11글자 입력해주세요.
+                            </span>
+                            
+                        </div>
+
+                    </div>
+                    
+                    <div id="inputemail">
+
+                        <h4 class="title_email">
+                            <label for="email">이메일</label>
+                        </h4>
+
+                        <span>
+                            <input id="email" name="email" type="text" autocomplete="off">
+                        </span>
+                        
+                        <span>
+                            <select id="email_domain" name="email_domain">
+                                <option value="@google.com">@google.com</option>
+                                <option value="@naver.com">@naver.com</option>
+                                <option value="@daum.net">@daum.net</option>
+                                <option value="@nate.com">@nate.com</option>
+                                <option value="">직접입력</option>
+                            </select>
+                        </span>
+
+                        <div class="err_email">
+
+                            <span class="text_err_email">
+                                이메일을 입력해주세요.
+                            </span>
+                            
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
+            </form>
+
+            <button type="submit" id="btn"><b>비밀번호 찾기</b></button>
+
+        </div>
+
+        <div id="footer">
+            <jsp:include page="../../footer.jsp"></jsp:include>
+        </div>
+
+    </div>
+
+    <script>
+        $(function () {
+            hide(4);
+            
+            // form에 있는 정보 받아오기
+            let id = document.getElementById("id");
+            let name = document.getElementById("name");
+            let phone = document.getElementById("phone");
+            let email = document.getElementById("email");
+         
+
+            $("#btn").on({
+                "mouseover": function () {
+                    $("#btn").css({ "background-color": "rgb(105, 180, 255)" });
+                },
+                "mouseleave": function () {
+                    $("#btn").css({ "background-color": "rgb(155, 205, 255)" });
+                }
+            });
+
+            $("#btn").click(function () {
+            	if(id.value.length < 6) {
+            		$(".err_id").show();
+            		
+            		hide(3);
+            	} else {
+            		$(".err_id").hide();
+            		
+            		if (name.value == "" || name.value.length > 6) {
+                        $(".err_name").show();
+                        
+                        hide(2);
+                    } else {
+                        $(".err_name").hide();
+                        
+                        if(phone.value.length != 11) {
+                        	$(".err_phone").show();
+                        	hide(1);
+                        } else {
+                        	$(".err_phone").hide();
+                        	
+                        	if(email.value == "") {
+                        		$(".err_email").show();
+                        	} else {
+                        		search();
+                        	}
+                        }
+                    }
+            	}
+            });
+
+            function search() {
+                // DB로 회원정보 보내기
+                $("form").attr("action", "/project2/search/pw").submit();
+            }
+
+            function hide(index) {
+                let err_msg = [".err_id", ".err_name", ".err_phone", ".err_email"];
+
+                for (let i = 3; i >= 4 - index; i--) {
+                    $(err_msg[i]).hide();
+                }
+            }
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+
+#wrap{
+    /* border: 1px solid red; */
+
+    top: 10%;
+    /* padding: 20; */
+    margin: 0 auto;
+    width: 1500px;
+    background-color: white;
+
+}
+#header{
+    /* border: 1px solid red; */
+    text-align: center;
+    padding: 20px;
+
+}
+
+.menu{
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-around;
+
+}
+.menu li{
+    
+    /* border: 1px solid blue; */
+    list-style-type: none;
+    display: inline-block;
+}
+
+.menu li a{
+    text-decoration: none;
+    color:black;
+    font-family: 'aritaSB';
+    font-weight: bold;
+    
+}
+
+hr{
+    text-decoration: none;
+}
+
+#board_div td {
+	border-bottom: 1px solid rgb(204,204,204);
+}
+
+#container{
+    margin-top: 10px;
+}
+
+#board{
+    border-top: 2px solid black;
+    width: 1060px; 
+    text-align: center;
+}
+
+#search{
+    width: 1060px; 
+    height: 70px;
+    text-align: center;
+    margin-left: 220px;
+    background-color: rgb(240, 240, 240);
+    padding: 10px;
+}
+
+#search_text{
+	width: 750px; 
+	height: 50px;
+	border: 1px solid rgb(214, 214, 214);
+}
+
+#search_btn{
+    height: 50px;
+    width: 130px;
+    background-color: rgb(155, 205, 255);
+    border: none;
+}
+
+#search_select {
+	border: 1px solid rgb(214, 214, 214);
+	width: 150px; height: 50px;
+}
+
+
+
+#board td {
+    height: 60px;
+}
+
+.hide{
+	white-space: nowrap; 
+	overflow: hidden; 
+	text-overflow: ellipsis;
+}
+
+#title {
+    background-color: rgb(240, 240, 240);
+}
+
+#board a{
+    text-decoration: none;
+    color:black;
+    font-family: 'aritaSB';
+    
+}
+
+#footer {
+    /* border: 1px solid orange; */
+    text-align: center;
+    background: rgb(228, 228, 228);
+}
+
+#footer p{
+    font-size: 12px;
+}
+
+.hide {
+	 white-space: nowrap; 
+	 overflow: hidden; 
+	 text-overflow: ellipsis;
+}	
+
+#menu_title {
+	text-align: center;
+	width: 1500px;
+}
+
+#insert_btn{
+	
+	 margin-left: 1200px; 
+	 width: 71px;
+}
+
+#pw_btn{
+    height: 30px;
+    width: 50px;
+    background-color: rgb(155, 205, 255);
+    border: none;
+}
+
+#pw_text{
+	width: 200px;
+    height: 30px;
+    border: 1px solid rgb(214, 214, 214);
+}
+
+
+#intro_menu td{
+ 	border: 1px solid rgb(204, 204, 204);
+	width: 200px; 
+	height: 40px;
+	background-color: rgb(240, 240, 240);
+}
+
+#intro_menu a{
+    text-decoration: none;
+    color:black;
+    font-family: 'aritaSB';
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.top_btn{
+	position:  sticky;
+	display: block;
+	margin-left: 90%;
+	top: 50%;
+}
+
+#header{
+	position:sticky; 
+	top:0; 
+	background-color: white;
+	z-index:1;
+}

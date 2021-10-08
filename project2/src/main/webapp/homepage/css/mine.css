@@ -1,0 +1,275 @@
+
+#wrap{
+    /* border: 1px solid red; */
+
+    top: 10%;
+    /* padding: 20; */
+    margin: 0 auto;
+    width: 1500px;
+    background-color: white;
+
+}
+#header{
+    /* border: 1px solid red; */
+    text-align: center;
+    padding: 20px;
+    position:sticky; 
+	top:0; 
+	background-color: white;
+	z-index:1;
+}
+
+.menu{
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-around;
+
+}
+.menu li{
+    
+    /* border: 1px solid blue; */
+    list-style-type: none;
+    display: inline-block;
+}
+
+.menu li a{
+    text-decoration: none;
+    color:black;
+    font-family: 'aritaSB';
+    font-weight: bold;
+    
+}
+
+
+hr{
+    text-decoration: none;
+    /* background-color: black; */
+}
+
+#container{
+    /* border: 1px solid red; */
+    margin-top: 10px;
+    position: relative;
+}
+
+#contents{
+    /* border: 1px solid green; */
+    width: 1150px;
+    height: 500px;
+    padding:20px;
+    left: 0;
+    
+}
+
+#contents p{
+    font-weight: bold;
+}
+
+#contents a{
+    text-decoration: none;
+    color:black;
+
+}
+
+#display{
+    /* border: 1px solid skyblue; */
+    padding: 10px;
+    position: relative;
+    
+}
+#notice{
+    
+    /* border: 1px solid pink; */
+    width: 450px;
+    height: 130px;
+    margin-bottom: 20px;
+}
+
+#board{
+    /* border: 1px solid cornflowerblue; */
+    width: 450px;
+    height: 130px;
+    margin-bottom: 20px;
+
+}
+
+#ad{
+    /* border: 1px solid darkgoldenrod; */
+    width: 450px;
+    height: 130px;
+
+}
+
+#process{
+    /* border: 1px solid darkgreen; */
+    width: 450px;
+    height: 130px;
+    right: 100px;
+    top:10px;
+    position: absolute;
+
+}
+
+#recruit{
+    /* border: 1px solid darkgreen; */
+    width: 450px;
+    right: 100px;
+    height: 130px;
+    top: 160px;
+    position: absolute;
+}
+
+#enter{
+    /* border: 1px solid darkgreen; */
+    width: 450px;
+    right: 100px;
+    height: 130px;
+    top: 310px;
+    position: absolute;
+}
+
+#side{
+    position: absolute;
+    /* border: 1px solid gray; */
+    width: 280px;
+    height: 500px;
+    top: 0;
+    right: 1%;
+}
+
+#sidebar{
+    position: absolute;
+    padding-top: 20px;
+    padding-left: 5px;
+    border: 1px solid #d4d4d4;
+    width: 275px;
+    height: 120px;
+    background: #fbfbfb;
+}
+
+#login{
+    position: relative;
+    margin-left: 10px;
+}
+
+.btn{
+    position: absolute;
+    top: 0;
+    height: 60px;
+}
+
+
+#checkbox a{
+    text-decoration: none;
+    color:black;
+    font-size: 13px;
+}
+
+.user_id{
+    width: 170px;
+    border-radius: 5px;
+    border: 1px solid black;
+
+}
+
+.user_pw{
+    width: 170px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#bkcolor{
+    position: absolute;
+    top: 150px;
+    right: 100%;
+    /* border: 1px solid sienna; */
+    text-align: center;
+    font-weight: bold;
+}
+
+#chgcolor, #reset{
+    font-size: 15px;
+    height: 35px;
+}
+
+#reset{
+    margin-left: 150px;
+}
+
+#sns{
+    
+    width: 130px;
+    /* border:1px solid black; */
+    position: absolute;
+    top: 210px;
+    right: 50%;
+}
+
+#sns p{
+    font-weight: bold;
+}
+
+#game{
+    width: 130px;
+    /* border:1px solid black; */
+    position: absolute;
+    top: 360px;
+    right: 50%;
+}
+
+#game p{
+        font-weight: bold;
+
+}
+
+#game a{
+    text-decoration: none;
+    color:black;
+        font-weight: bold;
+
+}
+
+table{
+    /* border: 1px solid black; */
+    margin-left: 0;
+}
+
+table a{
+    text-decoration: none;
+    color:black;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+table img{
+    width: 30px;
+}
+#footer{
+    /* border: 1px solid orange; */
+    text-align: center;
+    background: rgb(228, 228, 228);
+}
+
+#footer p{
+    font-size: 12px;
+}
+
+
+.hide {
+	 white-space: nowrap; 
+	 overflow: hidden; 
+	 text-overflow: ellipsis;
+}
+#logined {
+	margin-left: 50px;
+}
+
+.plus {
+	color: rgb(190,190,190);
+}
+.top_btn{
+	position:  sticky;
+	display: block;
+	margin-left: 90%;
+	top: 50%;
+}

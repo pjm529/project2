@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <link rel="stylesheet" href="/project/homepage/css/rsp.css">
+
+</head>
+
+<body>
+    <script src="/project/homepage/js/jquery-3.6.0.min.js"></script>
+    <script src="/project/homepage/js/rsp.js"></script>
+
+    <div id="logo">
+        <a href="/project/homepage/index.jsp"><img src="/project/homepage/images/index/logo.png" id="logo"></a>
+    </div>
+
+    <div id="wrap">
+
+
+        <div id="header">
+            <h1>가위바위보</h1>
+        </div>
+
+        <hr>
+
+
+        <div id="container">
+
+            <div id="display">
+
+                <div id="user">
+                    <div id="userback">
+                        <span id="userimg"></span>
+                    </div>
+                </div>
+
+                <div id="vs">
+                    <h1 id="h1">VS</h1>
+                </div>
+
+                <div id="com">
+                    <div id="comback">
+                        <span id="comimg"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="control">
+
+                <button id="rock"><b>가위</b></button>
+                <button id="sissors"><b>바위</b></button>
+                <button id="paper"><b>보</b></button>
+
+            </div>
+
+            <button id="reset">RESET</button>
+        </div>
+
+        <div id="footer">
+            <div id="result">
+
+                <div class="win">
+                    <h2 id="winmsg">WIN : </h2>
+                    <h2 id="wincount">0</h2>
+                </div>
+
+                <div class="draw">
+                    <h2 id="drawmsg">DRAW : </h2>
+                    <h2 id="drawcount">0</h2>
+                </div>
+
+                <div class="lose">
+                    <h2 id="losemsg">LOSE : </h2>
+                    <h2 id="losecount">0</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        $(function () {
+            let win = 0;
+            let draw = 0;
+            let lose = 0;
+            let com;
+            let msg;
+
+            $("#rock, #sissors, #paper, #reset").mouseover(function () {
+                $(this).css({
+                    "background-color": "rgba(108, 117, 125, 1)"
+                });
+            });
+
+            $("#rock, #sissors, #paper, #reset").mouseleave(function () {
+                $(this).css({
+                    "background-color": "rgba(108, 117, 125, 0.5)"
+                });
+            });
+
+            $("#reset").click(function () {
+                window.location.reload();
+            });
+
+            $("#rock").click(function () {
+                com = comrsp();
+                img(1, com);
+                showmsg(1, com);
+            });
+
+            $("#sissors").click(function () {
+                com = comrsp();
+                img(2, com);
+                showmsg(2, com);
+            });
+
+            $("#paper").click(function () {
+                com = comrsp();
+                img(3, com);
+                showmsg(3, com);
+            });
+
+            function showmsg(user, com) {
+                msg = game(user, com);
+                result(msg);
+            };
+
+            function img(user, com) {
+                $("#userimg, #comimg").hide();
+
+                $("#userimg").html("<img src='/project/homepage/images/rsp/math_img_" + user + ".png' alt='' width ='278px'>");
+                $("#comimg").html("<img src='/project/homepage/images/rsp/math_img_" + com + ".png' alt='' width ='278px'>");
+
+                $("#userimg, #comimg").fadeIn(500, "linear");
+            };
+
+            function result(msg) {
+
+                if (msg == "LOSE") {
+                    lose++;
+                    $("#losecount").text(lose);
+                    $(".lose").fadeOut(500, "linear");
+                    $(".lose").fadeIn(500, "linear");
+
+                } else if (msg == "WIN") {
+                    win++;
+                    $("#wincount").text(win);
+                    $(".win").fadeOut(500, "linear");
+                    $(".win").fadeIn(500, "linear");
+
+                } else {
+                    draw++;
+                    $("#drawcount").text(draw);
+                    $(".draw").fadeOut(500, "linear");
+                    $(".draw").fadeIn(500, "linear");
+
+                }
+
+            };
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+body{
+    /* text-align: center; */
+    /* display: flex; */
+    /* justify-content: center;  */
+    /* flex-direction: column; */
+}
+
+#wrap{
+    /* border: 1px solid black; */
+    padding:20px;
+    margin: 0 auto;
+    width: 1480px;
+    background-color: rgb(197, 206, 238);
+
+}
+
+
+#header{
+    text-align: center;
+    /* border: 1px solid black; */
+    background-color: white;
+}
+
+#logo{
+    margin-top: 10px;
+}
+#container{
+    /* border: 1px solid red; */
+    background-color: rgb(200,225,245);
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#display{
+    height: auto;
+}
+
+#player_track1, #player_track2, #player_track3, #player_track4, #player_track5, #player_track6{
+    border: 1px solid white; 
+    width: 1440px;
+    height: 50px;
+    margin-bottom: 5px;
+    background-image: url("../images/race/bk_tr1.gif");
+
+}
+
+.player{
+    width: 40px;
+}
+
+#start, #reset{
+    width: 90px;
+    height: 50px;
+    background-color: rgba(108, 117, 125, 0.5);
+    border: none;
+    border-radius: 10%;
+    color: white;
+}
+
+#ready{
+    height: 32px;
+    background-color: rgba(108, 117, 125, 0.5);
+    border: none;
+    border-radius: 10%;
+    color: white;
+}
+#control{
+    /* border: 1px solid black; */
+    width: 250px;
+    height: 100px;
+    margin-top: 5px;
+    margin-left: 40%;
+    text-align: center;
+}
+
+#playbtn{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    /* border: 1px solid black; */
+
+}
+
+#player_num{
+    width: 140px;
+    height: 25px;
+}
+
+#player_1, #player_2, #player_3, #player_4, #player_5, #player_6{
+    /* border: 1px solid black; */
+    width: 40px;
+    margin-top: 5px;
+}

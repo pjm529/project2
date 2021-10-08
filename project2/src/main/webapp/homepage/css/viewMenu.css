@@ -1,0 +1,151 @@
+
+#wrap{
+    /* border: 1px solid red; */
+
+    top: 10%;
+    /* padding: 20; */
+    margin: 0 auto;
+    width: 1500px;
+    background-color: white;
+
+}
+#header{
+    /* border: 1px solid red; */
+    text-align: center;
+    padding: 20px;
+
+}
+
+.menu{
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-around;
+
+}
+.menu li{
+    
+    /* border: 1px solid blue; */
+    list-style-type: none;
+    display: inline-block;
+}
+
+.menu li a{
+    text-decoration: none;
+    color:black;
+    font-family: 'aritaSB';
+    font-weight: bold;
+    
+}
+
+hr{
+    text-decoration: none;
+    /* background-color: black; */
+}
+
+#container{
+    /* border: 1px solid red; */
+    margin-top: 10px;
+}
+
+#board{
+    text-align:center
+}
+
+#content {
+    width: 1000px; 
+    text-align: left; 
+    /* border: 1px solid black;  */
+    margin-left: 250px;
+}
+
+#footer{
+    /* border: 1px solid orange; */
+    text-align: center;
+    background: rgb(228, 228, 228);
+}
+
+#footer p{
+    font-size: 12px;
+}
+
+table td {
+	 width: 330px; 
+	 height: 40px;
+	 border-bottom: 1px solid rgb(204,204,204);
+}
+
+table {
+	width: 1000px;
+}
+
+#view_info {
+	border-top: 2px solid black;
+	background-color: rgb(240, 240, 240);
+}
+
+#view_recruit_info{
+	border-top: 2px solid black;
+	background-color: rgb(240, 240, 240);
+	
+}
+
+.td1{
+	width: 150px;
+}
+
+.td2{
+	width: 350px; 
+	background-color: white;
+}
+
+#view_recruit_info td{
+	border-right: 1px solid rgb(204,204,204);
+}
+
+
+
+#btn{
+	margin-left: 850px;
+}
+
+#content span{
+	 white-space: pre;
+}
+
+#menu_title {
+	text-align: center;
+	width: 1500px;
+}
+
+#comment{
+	margin-left: 250px;
+}
+
+#comment_text{
+	height: 50px; 
+	width: 920px;
+}
+
+#add_comment_btn {
+	height: 50px;
+}
+
+.delete_comment_btn {
+	 border:none;
+	 background-color: white; 
+	 color: red;
+}
+
+#header{
+	position:sticky; 
+	top:0; 
+	background-color: white;
+	z-index:1;
+}
+
+.top_btn{
+	position:  sticky;
+	display: block;
+	margin-left: 90%;
+	top: 50%;
+}
