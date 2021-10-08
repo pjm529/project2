@@ -18,7 +18,7 @@
 		<li><span id="menu_ad"><a href="/project2/ad/listAd">구인정보</a></span></li>
 		<li><span id="menu_enter"><a href="/project2/enter/listEnter">문의사항</a></span></li>
 		<li><span id="menu_introduce"><a href="/project2/introduce/introduce">교육원소개</a></span></li>
-		<li><span id="menu_road"><a href="/project2/homepage/menu/road/road.jsp">찾아오는길</a></span></li>
+		<li><span id="menu_road"><a href="/project2/road">찾아오는길</a></span></li>
 	</ul>
 
 </div>

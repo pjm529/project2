@@ -147,9 +147,9 @@
                 <div id="game">
                     <p>게임</p>
                     <hr>
-                    <span><a href="/project2/homepage/game/rsp.html">가위바위보</a></span><br>
-                    <span><a href="/project2/homepage/game/worldcup.html">이상형 월드컵</a></span><br>
-                    <span><a href="/project2/homepage/game/race.html?#">경주 게임</a></span>
+                    <span><a href="/project2/game/rsp">가위바위보</a></span><br>
+                    <span><a href="/project2/game/worldcup">이상형 월드컵</a></span><br>
+                    <span><a href="/project2/game/race?#">경주 게임</a></span>
                 </div>
 
 
