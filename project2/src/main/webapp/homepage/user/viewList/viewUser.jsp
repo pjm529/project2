@@ -31,16 +31,16 @@
 <head>
 <meta charset="UTF-8">
 <title>영남인재교육원 : 회원수정</title>
-<link rel="stylesheet" href="/project2/homepage/css/signup.css">
+<link rel="stylesheet" href="/project2/css/signup.css">
 </head>
 
 <body>
-    <script src="/project2/homepage/js/jquery-3.6.0.min.js"></script>
+    <script src="/project2/js/jquery-3.6.0.min.js"></script>
 
     <div id="wrap">
 
         <div id="header">
-            <a href="/project2/index"><img src="/project2/homepage/images/index/logo.png" id="logo"></a>
+            <a href="/project2/index"><img src="/project2/images/index/logo.png" id="logo"></a>
         </div>
 
         <hr>

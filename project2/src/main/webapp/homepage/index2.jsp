@@ -21,14 +21,14 @@
 <head>
 <meta charset="UTF-8">
 <title>영남인재교육원</title>
-<link rel="stylesheet" href="/project2/homepage/css/mine.css">
+<link rel="stylesheet" href="/project2/css/mine.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
 </head>
-<script src="/project2/homepage/js/jquery-3.6.0.min.js"></script>
+<script src="/project2/js/jquery-3.6.0.min.js"></script>
 <body>
     <div id="wrap">
 

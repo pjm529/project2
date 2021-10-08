@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>경주게임</title>
 
-    <link rel="stylesheet" href="/project/homepage/css/race.css">
+    <link rel="stylesheet" href="/project2/css/race.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
         <div id="header">
 
             <div id="logo">
-                <a href="/project/homepage/index.jsp"><img src="/project/homepage/images/index/logo.png" id="logo"></a>
+                <a href="/project2/index"><img src="/project2/images/index/logo.png" id="logo"></a>
             </div>
             <hr>
         </div>
@@ -28,13 +28,13 @@
 
                 <div id="player_track1">
                     <div id="player_1">
-                        <img src="/project/homepage/images/race/player_1.png" class="player">
+                        <img src="/project2/images/race/player_1.png" class="player">
                     </div>
                 </div>
 
                 <div id="player_track2">
                     <div id="player_2">
-                        <img src="/project/homepage/images/race/player_2.png" class="player">
+                        <img src="/project2/images/race/player_2.png" class="player">
                     </div>
                 </div>
 
@@ -85,7 +85,7 @@
 
     </div>
 
-    <script src="/project/homepage/js/jquery-3.6.0.min.js"></script>
+    <script src="/project2/js/jquery-3.6.0.min.js"></script>
 
     <script>
         let speed = [];
@@ -209,7 +209,7 @@
             }
 
             for (let i = 2; i < player_num; i++) {
-                $("#player_" + (i + 1) + " img").attr("src", "/project/homepage/images/race/player_" + (i + 1) + ".png");
+                $("#player_" + (i + 1) + " img").attr("src", "/project2/images/race/player_" + (i + 1) + ".png");
             }
         }
 

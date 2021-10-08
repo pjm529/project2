@@ -28,17 +28,17 @@
 <head>
 <meta charset="UTF-8">
 <title>영남인재교육원 : 게시판</title>
-<link rel="stylesheet" href="/project2/homepage/css/menu.css">
+<link rel="stylesheet" href="/project2/css/menu.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-<script src="/project2/homepage/js/jquery-3.6.0.min.js"></script>
+<script src="/project2/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
 	<div class="top_btn">
-		<a href="#"><img src="/project2/homepage/images/top_btn.png"></a>
+		<a href="#"><img src="/project2/images/top_btn.png"></a>
 	</div>
 	
     <div id="wrap">

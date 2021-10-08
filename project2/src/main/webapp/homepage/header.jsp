@@ -4,7 +4,7 @@
 <br>
 <div id="logo">
 	<a href="/project2/index"><img
-		src="/project2/homepage/images/index/logo.png" id="logo"></a>
+		src="/project2/images/index/logo.png" id="logo"></a>
 </div>
 <br>
 

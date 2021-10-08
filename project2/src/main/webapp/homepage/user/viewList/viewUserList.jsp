@@ -39,7 +39,7 @@
 <body style="text-align:center; background-color: #eee;">
 	<br>
 	<div id="header">
-           <a href="/project2/index"><img src="/project2/homepage/images/index/logo.png" id="logo"></a>
+           <a href="/project2/index"><img src="/project2/images/index/logo.png" id="logo"></a>
        </div>
 
        <hr style="width:1200px;">

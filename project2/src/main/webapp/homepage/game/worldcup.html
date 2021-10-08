@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이상형 월드컵</title>
-    <link rel="stylesheet" href="/project/homepage/css/worldcup.css">
+    <link rel="stylesheet" href="/project2/css/worldcup.css">
 
 </head>
 
 <body>
-    <script src="/project/homepage/js/jquery-3.6.0.min.js"></script>
-    <script src="/project/homepage/js/worldcup.js"></script>
+    <script src="/project2/js/jquery-3.6.0.min.js"></script>
+    <script src="/project2/js/worldcup.js"></script>
 
     <div id="logo">
-        <a href="/project/homepage/index.jsp"><img src="/project/homepage/images/index/logo.png" id="logo"></a>
+        <a href="/project2/index"><img src="/project2/images/index/logo.png" id="logo"></a>
     </div>
 
     <div id="wrap">
@@ -116,8 +116,8 @@
                 play1 += 2;
                 play2 += 2;
 
-                $("#player1img").html("<img src='/project/homepage/images/worldcup/player_" + num1 + ".png' alt=''  height = '278px'>");
-                $("#player2img").html("<img src='/project/homepage/images/worldcup/player_" + num2 + ".png' alt=''  height = '278px'>");
+                $("#player1img").html("<img src='/project2/images/worldcup/player_" + num1 + ".png' alt=''  height = '278px'>");
+                $("#player2img").html("<img src='/project2/images/worldcup/player_" + num2 + ".png' alt=''  height = '278px'>");
                 $("#player1img, #player2img").hide();
                 $("#player1img, #player2img").fadeIn(500, "linear");
             }
@@ -158,7 +158,7 @@
 
             function winner(num) {
                 $("#roundmsg").hide();
-                $("#winnerimg").html("<img src='/project/homepage/images/worldcup/player_" + num + ".png' alt=''  height = '278px'>");
+                $("#winnerimg").html("<img src='/project2/images/worldcup/player_" + num + ".png' alt=''  height = '278px'>");
                 $("#display, #start, #reset").fadeOut(500, "linear");
                 $("#winner, #reset").delay(1000).fadeIn(1000, "linear");
                 $("#roundmsg").delay(1000).text("우승").fadeIn(1000, "linear");
