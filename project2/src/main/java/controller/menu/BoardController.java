@@ -173,7 +173,7 @@ public class BoardController extends HttpServlet {
 
 		}else {
 				
-			nextPage = "/homepage/index.jsp";
+			nextPage = "/error/error404.jsp";
 		}
 		
 		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage); 

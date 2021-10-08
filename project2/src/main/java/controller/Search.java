@@ -100,7 +100,7 @@ public class Search extends HttpServlet {
 			nextPage = "/homepage/index.jsp";
 
 		} else {
-			nextPage = "/homepage/index.jsp";
+			nextPage = "/error/error404.jsp";
 		}
 
 		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);

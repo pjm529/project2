@@ -57,7 +57,7 @@ public class RecruitController extends HttpServlet {
 
 		} else {
 
-			nextPage = "/homepage/menu/introduce/introduce.jsp";
+			nextPage = "/error/error404.jsp";
 
 		}
 
