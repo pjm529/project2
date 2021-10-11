@@ -94,12 +94,17 @@
                         </span>
                         
                         <span>
-                            <select id="email_domain" name="email_domain">
-                                <option value="@google.com">@google.com</option>
+                            <input id="email_domain" name="email_domain" type="text" autocomplete="off"
+                             readonly value="@google.com">
+                        </span>
+                        
+                        <span>
+                            <select id="email_domain2" name="email_domain2">
+                                <option value="@google.com" selected>@google.com</option>
                                 <option value="@naver.com">@naver.com</option>
                                 <option value="@daum.net">@daum.net</option>
                                 <option value="@nate.com">@nate.com</option>
-                                <option value="">직접입력</option>
+                                <option value="1">직접입력</option>
                             </select>
                         </span>
 
@@ -136,7 +141,19 @@
             let name = document.getElementById("name");
             let phone = document.getElementById("phone");
             let email = document.getElementById("email");
-         
+         	
+            $("#email_domain2").change(function(){
+        		if($(this).val() =='1') {
+        			$("#email_domain").val('');
+        			$("#email_domain").attr("readonly", false);
+        			$("#email_domain").css("background-color", "white");
+        			$("#email_domain").focus();
+        		} else {
+        			$("#email_domain").val($(this).val());
+        			$("#email_domain").attr("readonly", true);
+        			$("#email_domain").css({ "background-color": "rgb(240, 240, 240)"});
+        		}
+      	  	});
 
             $("#btn").on({
                 "mouseover": function () {
