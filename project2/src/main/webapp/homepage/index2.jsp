@@ -143,7 +143,7 @@
                     <hr>
                     <span><a href="/project2/game/rsp">가위바위보</a></span><br>
                     <span><a href="/project2/game/worldcup">이상형 월드컵</a></span><br>
-                    <span><a href="/project2/game/race">경주 게임</a></span>
+                    <span><a href="/project2/game/race?#">경주 게임</a></span>
                 </div>
 
 
