@@ -60,6 +60,7 @@ hr{
     /* border: 1px solid orange; */
     text-align: center;
     background: rgb(228, 228, 228);
+    margin-bottom: 20px;
 }
 
 #footer p{
