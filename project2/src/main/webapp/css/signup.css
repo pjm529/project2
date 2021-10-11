@@ -47,49 +47,49 @@ body{
 }
 
 .title_id{
-    margin-right: 32%;
+    margin-right: 38%;
     margin-bottom: 5px;
     margin-top: 0;
 }
 
 .title_pw {
-    margin-right: 30%;
+    margin-right: 36%;
     margin-bottom: 5px;
     margin-top: 0;
 }
 
 .title_chkpw {
-    margin-right: 21%;
+    margin-right: 27%;
     margin-bottom: 5px;
     margin-top: 0;
 }
 
 .title_name{
-    margin-right: 34%;
+    margin-right: 40%;
     margin-bottom: 5px;
     margin-top: 0;
 }
 
 .title_phone{
-    margin-right: 30%;
+    margin-right: 36%;
     margin-bottom: 5px;
     margin-top: 0;
 }
 
 .title_birth{
-    margin-right: 30%;
+    margin-right: 36%;
     margin-bottom: 5px;
     margin-top: 0;
 }
 
 .title_gender{
-    margin-right: 34%;
+    margin-right: 40%;
     margin-bottom: 5px;
     margin-top: 0;
 }
 
 .title_email{
-    margin-right: 32%;
+    margin-right: 38%;
     margin-bottom: 5px;
     margin-top: 0;
 }
@@ -97,7 +97,7 @@ body{
 .text_err_id, .text_err_id2{
     color:red;
     font-size: 13px;
-    margin-right: 13%;
+    margin-right: 19%;
 
 }
 
@@ -105,103 +105,110 @@ body{
 .text_err_pw{
     color:red;
     font-size: 13px;
-    margin-right: 11%;
+    margin-right: 17%;
 
 }
 
 .text_err_chkpw{
     color:red;
     font-size: 13px;
-    margin-right: 11%;
+    margin-right: 17%;
 
 }
 
 .text_err_gender{
     color:red;
     font-size: 13px;
-    margin-right: 20%;
+    margin-right: 26%;
 }
 
 .text_err_name{
     color:red;
     font-size: 13px;
-    margin-right: 8%;
+    margin-right: 14%;
 }
 
 .text_err_phone{
     color:red;
     font-size: 13px;
-    margin-right: 9%;
+    margin-right: 15%;
 }
 
 .text_err_email{
     color:red;
     font-size: 13px;
-    margin-right: 18%;
+    margin-right: 24%;
 }
 
 .text_err_birth{
     color:red;
     font-size: 13px;
-    margin-right: 16%;
+    margin-right: 22%;
 }
 
 
 #id, #pw, #chkpw, #name, #phone, #sel_email{
-    width: 250px;
+    width: 290px;
     height: 30px;
     border: 1px solid rgb(214, 214, 214);
     
 }
 
 #email{
-	width: 130px;
+	width: 80px;
     height: 30px;
     border: 1px solid rgb(214, 214, 214);
 }
 
 #email_domain{
-    height: 34px;
-    border: 1px solid rgb(214, 214, 214);
-    width: 115px;
-}
-
-#year{
     height: 30px;
     border: 1px solid rgb(214, 214, 214);
     width: 85px;
 }
 
+#email_domain2{
+    height: 34px;
+    border: 1px solid rgb(214, 214, 214);
+    width: 105px;
+}
+
+#year{
+    height: 30px;
+    border: 1px solid rgb(214, 214, 214);
+    width: 105px;
+}
+
 #day{
 	height: 34px;
 	border: 1px solid rgb(214, 214, 214);
-    width: 77px;
+    width: 87px;
 }
 
 #month{
     height: 34px;
     border: 1px solid rgb(214, 214, 214);
-    width: 77px;
+    width: 87px;
 }
 
 #gender{
     height: 34px;
     border: 1px solid rgb(214, 214, 214);
-    width: 256px;
+    width: 295px;
 }
 
 #btn{
     margin-top : 10px;
     height: 50px;
-    width: 255px;
+    width: 295px;
     background-color: rgb(155, 205, 255);
     border: none;
 }
 
+
 #update_btn, #list_btn, #delete_btn, #search_pw_btn{
 	margin-top : 10px;
     height: 50px;
-    width: 255px;
+    width: 295px;
     background-color: rgb(155, 205, 255);
     border: none;
 }

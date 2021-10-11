@@ -116,12 +116,12 @@
 
                         <span>
                         	<input id="month" name="month" type="text"
-                        	value=${memInfo.month }월 style="width: 71px; height: 30px;" readonly>
+                        	value=${memInfo.month }월 style="width: 81px; height: 30px;" readonly>
                         </span>
 
                         <span>
                         	<input id="day" name="day" type="text"
-                        	value=${memInfo.day }일 style="width: 71px; height: 30px;" readonly>
+                        	value=${memInfo.day }일 style="width: 81px; height: 30px;" readonly>
                         </span>
                         
                     </div>
@@ -134,7 +134,7 @@
 
                         <span>
                        		<input id="gender" name="gender" type="text"
-                        	value=${memInfo.gender } style="width: 250px; height: 30px;" readonly>
+                        	value=${memInfo.gender } style="width: 290px; height: 30px;" readonly>
                         </span>
                         
                     </div>

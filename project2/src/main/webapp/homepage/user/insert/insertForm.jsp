@@ -159,12 +159,17 @@
                         </span>
                         
                         <span>
-                            <select id="email_domain" name="email_domain">
-                                <option value="@google.com">@google.com</option>
+                            <input id="email_domain" name="email_domain" type="text" autocomplete="off"
+                             disabled value="@google.com">
+                        </span>
+                        
+                        <span>
+                            <select id="email_domain2" name="email_domain2">
+                                <option value="@google.com" selected>@google.com</option>
                                 <option value="@naver.com">@naver.com</option>
                                 <option value="@daum.net">@daum.net</option>
                                 <option value="@nate.com">@nate.com</option>
-                                <option value="">직접입력</option>
+                                <option value="1">직접입력</option>
                             </select>
                         </span>
 
@@ -303,10 +308,24 @@
             let name = document.getElementById("name");
             let phone = document.getElementById("phone");
             let email = document.getElementById("email");
+            let email_domain = document.getElementById("email_domain");
             let year = document.getElementById("year");
             let month = document.getElementById("month");
             let day = document.getElementById("day");
             let gender = document.getElementById("gender");
+            
+            $("#email_domain2").change(function(){
+            	$("#email_domain2 option:selected").each(function() {
+            		if($(this).val() =='1') {
+            			$("#email_domain").val('');
+            			$("#email_domain").attr("disabled", false);
+            		} else {
+            			$("#email_domain").val($(this).text());
+            			$("#email_domain").attr("disabled", true);
+            		}
+            	});
+            	
+            });
             
 
             $("#btn").on({
@@ -387,7 +406,7 @@
                         			$(".err_phone").hide();
                         			
                         			// eamil 체크 
-                        			if(email.value == "") {
+                        			if(email.value == "" || email_domain.value == "") {
                         				$(".err_email").show();
                         				hide(2);
                                     		
