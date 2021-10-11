@@ -60,10 +60,15 @@ public class MemberController extends HttpServlet {
 			String phone = request.getParameter("phone");
 			String email = request.getParameter("email");
 			String email_domain = request.getParameter("email_domain");
+			String email_domain2 = request.getParameter("email_domain2");
 			String year = request.getParameter("year");
 			String month = request.getParameter("month");
 			String day = request.getParameter("day");
 			String gender = request.getParameter("gender");
+			
+			if(email_domain == null) {
+				email_domain = email_domain2;
+			}
 
 			MemberVO memberVO = new MemberVO(id, pw, name, phone, email, email_domain, year, month, day, gender);
 			memberDAO.addMember(memberVO);
@@ -110,11 +115,16 @@ public class MemberController extends HttpServlet {
 			String phone = request.getParameter("phone");
 			String email = request.getParameter("email");
 			String email_domain = request.getParameter("email_domain");
+			String email_domain2 = request.getParameter("email_domain2");
 			String year = request.getParameter("year");
 			String month = request.getParameter("month");
 			String day = request.getParameter("day");
 			String gender = request.getParameter("gender");
 
+			if(email_domain == null) {
+				email_domain = email_domain2;
+			}
+			
 			MemberVO memberVO = new MemberVO(num, id, pw, name, phone, email, email_domain, year, month, day, gender);
 			memberDAO.modMember(memberVO);
 
@@ -138,10 +148,15 @@ public class MemberController extends HttpServlet {
 			String phone = request.getParameter("phone");
 			String email = request.getParameter("email");
 			String email_domain = request.getParameter("email_domain");
+			String email_domain2 = request.getParameter("email_domain2");
 			String year = request.getParameter("year");
 			String month = request.getParameter("month");
 			String day = request.getParameter("day");
 			String gender = request.getParameter("gender");
+			
+			if(email_domain == null) {
+				email_domain = email_domain2;
+			}
 
 			MemberVO memberVO = new MemberVO(num, id, pw, name, phone, email, email_domain, year, month, day, gender);
 			memberDAO.modMemberMy(memberVO);
