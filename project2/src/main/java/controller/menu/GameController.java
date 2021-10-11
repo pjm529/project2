@@ -43,7 +43,7 @@ public class GameController extends HttpServlet {
 
 		String action = request.getPathInfo(); // URL에서 요청명을 가져옴.
 
-		if (action == null || action.equals("/race?#")) { // 최초 요청이거나 listMembers.do일때
+		if (action == null || action.equals("/race")) { // 최초 요청이거나 listMembers.do일때
 
 			nextPage = "/homepage/game/race.html?#";
 
