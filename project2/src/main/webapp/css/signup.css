@@ -164,6 +164,7 @@ body{
     height: 30px;
     border: 1px solid rgb(214, 214, 214);
     width: 85px;
+    background-color: rgb(240, 240, 240);
 }
 
 #email_domain2{

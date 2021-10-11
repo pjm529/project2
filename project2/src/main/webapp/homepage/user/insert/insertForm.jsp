@@ -160,7 +160,7 @@
                         
                         <span>
                             <input id="email_domain" name="email_domain" type="text" autocomplete="off"
-                             disabled value="@google.com">
+                             readonly value="@google.com">
                         </span>
                         
                         <span>
@@ -315,14 +315,16 @@
             let gender = document.getElementById("gender");
             
             $("#email_domain2").change(function(){
-            		if($(this).val() =='1') {
-            			$("#email_domain").val('');
-            			$("#email_domain").attr("disabled", false);
-            		} else {
-            			$("#email_domain").val($(this).text());
-            			$("#email_domain").attr("disabled", true);
-            		}
-            });
+        		if($(this).val() =='1') {
+        			$("#email_domain").val('');
+        			$("#email_domain").attr("readonly", false);
+        			$("#email_domain").css("background-color", "white");
+        		} else {
+        			$("#email_domain").val($(this).val());
+        			$("#email_domain").attr("readonly", true);
+        			$("#email_domain").css({ "background-color": "rgb(240, 240, 240)"});
+        		}
+      	  	});
             
 
             $("#btn").on({
