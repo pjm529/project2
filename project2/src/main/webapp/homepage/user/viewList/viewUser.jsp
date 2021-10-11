@@ -133,8 +133,15 @@
                         </h4>
 
                         <span>
-                       		<input id="gender" name="gender" type="text"
-                        	value=${memInfo.gender } style="width: 290px; height: 30px;" readonly>
+                       		<c:if test="${memInfo.gender  == 'male'}">
+								<input id="gender" name="gender" type="text"
+                        		value="남" style="width: 290px; height: 30px;" readonly>
+							</c:if>
+						
+							<c:if test="${memInfo.gender  == 'female'}">
+								<input id="gender" name="gender" type="text"
+                        		value="여" style="width: 290px; height: 30px;" readonly>
+							</c:if>
                         </span>
                         
                     </div>

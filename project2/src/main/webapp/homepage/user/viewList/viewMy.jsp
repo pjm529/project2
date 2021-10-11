@@ -7,7 +7,9 @@
 <%@ page import="java.sql.SQLException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+   
 <%
 	String sessId = (String) session.getAttribute("id"); 
 	String sessNum = (String) session.getAttribute("num");
@@ -132,8 +134,15 @@
                         </h4>
 
                         <span>
-                       		<input id="gender" name="gender" type="text"
-                        	value=${memInfo.gender } style="width: 290px; height: 30px;" readonly>
+                        	<c:if test="${memInfo.gender  == 'male'}">
+								<input id="gender" name="gender" type="text"
+                        		value="남" style="width: 290px; height: 30px;" readonly>
+							</c:if>
+						
+							<c:if test="${memInfo.gender  == 'female'}">
+								<input id="gender" name="gender" type="text"
+                        		value="여" style="width: 290px; height: 30px;" readonly>
+							</c:if>
                         </span>
                         
                     </div>

@@ -100,13 +100,13 @@
 					
 					<td>
 						<div style="width: 80px;">
-							${mem.gender }
-							<%-- <%if(mem.gender}.equals("male")){
-		                    %>		남 
-		                    <%} else { 
-		                    %>		여 
-		                    <% }
-		                    %> --%>
+							<c:if test="${mem.gender  == 'male'}">
+								남
+							</c:if>
+						
+							<c:if test="${mem.gender  == 'female'}">
+								여
+							</c:if>
 						</div> 
 					</td>
 					
