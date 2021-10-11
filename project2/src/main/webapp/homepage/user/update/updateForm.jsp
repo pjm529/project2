@@ -273,7 +273,6 @@
             let gender = document.getElementById("gender");
             
             $("#email_domain2").change(function(){
-            	$("#email_domain2 option:selected").each(function() {
             		if($(this).val() =='1') {
             			$("#email_domain").val('');
             			$("#email_domain").attr("disabled", false);
@@ -281,8 +280,6 @@
             			$("#email_domain").val($(this).text());
             			$("#email_domain").attr("disabled", true);
             		}
-            	});
-            	
             });
 
             $("#update_btn").on({
