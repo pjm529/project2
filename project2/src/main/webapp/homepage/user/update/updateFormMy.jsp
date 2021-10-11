@@ -314,6 +314,7 @@
         			$("#email_domain").val('');
         			$("#email_domain").attr("readonly", false);
         			$("#email_domain").css("background-color", "white");
+        			$("#email_domain").focus();
         		} else {
         			$("#email_domain").val($(this).val());
         			$("#email_domain").attr("readonly", true);
@@ -336,15 +337,18 @@
             	if (pw.value == "" || (pw.value.length < 8 || pw.value.length > 17)) {
 
                     $(".err_pw").show();
+                    $("#pw").focus();
                     hide(6);
 
                 } else {
 
                     $(".err_pw").hide();
+                    
 
                     if (pw.value != chkpw.value || chkpw.value == "") {
 
                         $(".err_chkpw").show();
+                        $("#chkpw").focus();
                         hide(5);
 
                     } else {
@@ -354,6 +358,7 @@
                      // name값 체크
                         if (name.value == "" || name.value.length > 6) {
                             $(".err_name").show();
+                            $("#name").focus();
                             hide(4);
                         }
                         else {
@@ -362,12 +367,14 @@
                             // phone 체크
                             if(phone.value.length != 11) {
                             	$(".err_phone").show();
+                            	$("#phone").focus();
                             	hide(3);
                             } else {
                             	$(".err_phone").hide();
                             	
                             	if(email.value == "" || email_domain.value == "") {
                             		$(".err_email").show();
+                            		$("#email").focus();
                             		hide(2);
                             	} else {
                             		$(".err_email").hide();
@@ -375,6 +382,7 @@
                             		//birth 체크
                                 	if (year.value.length != 4 || month.value == "" || day.value.length != 2) {
                                         $(".err_birth").show();
+                                        $("#year").focus();
                                         hide(1);
                                     } else {
                                         $(".err_birth").hide();
@@ -382,10 +390,11 @@
                                         // gender 체크
                                         if (gender.value == "") {
                                             $(".err_gender").show();
+                                            $("#gender").focus();
                                         } else {
-                                    	alert("수정이 완료되었습니다.");
-            							$("form").attr("onsubmit", "return true;");
-            							$("form").attr("action", "/project2/member/modMemberMy").submit();;
+	                                    	alert("수정이 완료되었습니다.");
+	            							$("form").attr("onsubmit", "return true;");
+	            							$("form").attr("action", "/project2/member/modMemberMy").submit();
                                     	}
                                 	}
                            	 	}

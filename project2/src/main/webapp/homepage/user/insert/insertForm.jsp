@@ -319,6 +319,7 @@
         			$("#email_domain").val('');
         			$("#email_domain").attr("readonly", false);
         			$("#email_domain").css("background-color", "white");
+        			$("#email_domain").focus();
         		} else {
         			$("#email_domain").val($(this).val());
         			$("#email_domain").attr("readonly", true);
@@ -348,6 +349,7 @@
     				success: function(data) {
     					if (data == 1) {
     						$(".err_id2").show();
+    						$("#id").focus();
     						hide(8);
                         } else {
                         	$(".err_id2").hide();
@@ -363,6 +365,7 @@
                 if (id.value == "" || (id.value.length < 6 || id.value.length > 12)) {
 
                     $(".err_id").show();
+                    $("#id").focus();
                     hide(7);
 
 				} else {
@@ -373,6 +376,7 @@
                     if (pw.value == "" || (pw.value.length < 8 || pw.value.length > 17)) {
                     	
                     	$(".err_pw").show();
+                    	$("#pw").focus();
                     	hide(6);
 
 					} else {
@@ -382,6 +386,7 @@
 						if (pw.value != chkpw.value || chkpw.value == "") {
 
 							$(".err_chkpw").show();
+							$("#chkpw").focus();
 							hide(5);
 
                         } else {
@@ -391,6 +396,7 @@
                         	if (name.value == "" || name.value.length > 6) {
                         		
 								$(".err_name").show();
+								$("#name").focus();
 								hide(4);
                         	} else {
                         		$(".err_name").hide();
@@ -400,6 +406,7 @@
                         		if(phone.value.length != 11) {
                         			
                         			$(".err_phone").show();
+                        			$("#phone").focus();
                         			hide(3);
                         		} else {
                         			$(".err_phone").hide();
@@ -407,6 +414,7 @@
                         			// eamil 체크 
                         			if(email.value == "" || email_domain.value == "") {
                         				$(".err_email").show();
+                        				$("#email").focus();
                         				hide(2);
                                     		
                         			} else {
@@ -417,6 +425,7 @@
                         				if (year.value.length != 4 || month.value == "" || day.value.length != 2) {
                         					
                         					$(".err_birth").show();
+                        					$("#year").focus();
                         					hide(1);
                         				} else {
                         					$(".err_birth").hide();
@@ -424,6 +433,7 @@
                         					// gender 체크
                         					if (gender.value == "") {
                         						$(".err_gender").show();
+                        						$("#gender").focus();
                         					} else {
                         						// 필수조건 충족 시 회원가입
                                                 signup();
