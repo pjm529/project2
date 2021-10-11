@@ -178,11 +178,6 @@ hr{
     border: 1px solid black;
 }
 
-#chgcolor, #reset{
-    font-size: 15px;
-    height: 35px;
-}
-
 #reset{
     margin-left: 150px;
 }
