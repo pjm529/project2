@@ -130,7 +130,7 @@ public class EnterDAO {
 				String writer = rs.getString("writer");
 				String writer_id = rs.getString("writer_id");
 				String enter_no = rs.getString("enter_no");
-				String reg_date = rs.getString("reg_date").substring(0, 10);
+				String reg_date = rs.getString("reg_date").substring(2, 16);
 
 				EnterCommentVO enterCommentVO = new EnterCommentVO(num2, comment, writer, writer_id, enter_no,
 						reg_date);

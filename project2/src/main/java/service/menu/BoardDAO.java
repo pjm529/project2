@@ -130,7 +130,7 @@ public class BoardDAO {
 				String writer = rs.getString("writer");
 				String writer_id = rs.getString("writer_id");
 				String board_no = rs.getString("board_no");
-				String reg_date = rs.getString("reg_date").substring(0, 10);
+				String reg_date = rs.getString("reg_date").substring(2, 16);
 
 				BoardCommentVO boardCommentVO = new BoardCommentVO(num2, comment, writer, writer_id, board_no,
 						reg_date);
