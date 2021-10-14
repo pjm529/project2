@@ -295,27 +295,20 @@ public class BoardDAO {
 		if (sessId != null) {
 			if (sessId.equals("admin") || sessId.equals(writer_id)) {
 				try {
-					PreparedStatement pstmt2 = null;
 					conn = ds.getConnection();
 
 					String sql = "delete from board where num =" + num;
-					String sql2 = "delete from board_comment where board_no =" + num;
 
 					pstmt = conn.prepareStatement(sql);
-					pstmt2 = conn.prepareStatement(sql2);
 
 					pstmt.executeUpdate();
-					pstmt2.executeUpdate();
 
-					init(conn, pstmt, rs, num); // 게시글번호 정렬
+					init(conn, pstmt, rs); // 게시글번호 정렬
 
 					if (pstmt != null) {
 						pstmt.close();
 					}
 
-					if (pstmt2 != null) {
-						rs.close();
-					}
 
 					if (conn != null) {
 						conn.close();
@@ -328,7 +321,7 @@ public class BoardDAO {
 		}
 	}
 
-	public void init(Connection conn, PreparedStatement pstmt, ResultSet rs, String num) throws SQLException {
+	public void init(Connection conn, PreparedStatement pstmt, ResultSet rs) throws SQLException {
 
 		int count = 0;
 		String sql = "select count(*) as 'count' from board";
@@ -368,10 +361,9 @@ public class BoardDAO {
 
 			String sqlList[] = { "ALTER TABLE board_comment AUTO_INCREMENT=1", "SET @CNT = 0",
 					"UPDATE board_comment SET board_comment.num = @CNT:=@CNT+1",
-					"ALTER TABLE board_comment AUTO_INCREMENT=" + (count + 1),
-					"UPDATE board_comment SET board_no = board_no - 1 where board_no > " + num };
+					"ALTER TABLE board_comment AUTO_INCREMENT=" + (count + 1)};
 
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 4; i++) {
 				pstmt = conn.prepareStatement(sqlList[i]);
 				pstmt.executeUpdate();
 			}
