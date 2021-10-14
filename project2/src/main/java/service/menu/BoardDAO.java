@@ -335,10 +335,11 @@ public class BoardDAO {
 				count = rs.getInt("count");
 			}
 
-			String sqlList[] = { "ALTER TABLE board AUTO_INCREMENT=1", "SET @CNT = 0",
-					"UPDATE board SET board.num = @CNT:=@CNT+1", "ALTER TABLE board AUTO_INCREMENT=" + (count + 1), };
+			String sqlList[] = { "SET @CNT = 0",
+					"UPDATE board SET board.num = @CNT:=@CNT+1", 
+					"ALTER TABLE board AUTO_INCREMENT=" + (count + 1) };
 
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 3; i++) {
 				pstmt = conn.prepareStatement(sqlList[i]);
 				pstmt.executeUpdate();
 			}
@@ -359,11 +360,11 @@ public class BoardDAO {
 				count = rs.getInt("count");
 			}
 
-			String sqlList[] = { "ALTER TABLE board_comment AUTO_INCREMENT=1", "SET @CNT = 0",
+			String sqlList[] = { "SET @CNT = 0",
 					"UPDATE board_comment SET board_comment.num = @CNT:=@CNT+1",
 					"ALTER TABLE board_comment AUTO_INCREMENT=" + (count + 1)};
 
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 3; i++) {
 				pstmt = conn.prepareStatement(sqlList[i]);
 				pstmt.executeUpdate();
 			}

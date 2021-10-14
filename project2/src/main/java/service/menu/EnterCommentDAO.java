@@ -102,11 +102,11 @@ public class EnterCommentDAO {
 				count = rs.getInt("count");
 			}
 
-			String sqlList[] = { "ALTER TABLE enter_comment AUTO_INCREMENT=1", "SET @CNT = 0",
+			String sqlList[] = { "SET @CNT = 0",
 					"UPDATE enter_comment SET enter_comment.num = @CNT:=@CNT+1",
 					"ALTER TABLE enter_comment AUTO_INCREMENT=" + (count + 1) };
 
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 3; i++) {
 				pstmt = conn.prepareStatement(sqlList[i]);
 				pstmt.executeUpdate();
 			}
