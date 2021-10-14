@@ -343,26 +343,18 @@ public class EnterDAO {
 		if (sessId != null) {
 			if (sessId.equals("admin") || sessId.equals(writer_id)) {
 				try {
-					PreparedStatement pstmt2 = null;
 					conn = ds.getConnection();
 
 					String sql = "delete from enter where num =" + num;
-					String sql2 = "delete from enter_comment where enter_no =" + num;
 
 					pstmt = conn.prepareStatement(sql);
-					pstmt2 = conn.prepareStatement(sql2);
 
 					pstmt.executeUpdate();
-					pstmt2.executeUpdate();
 
-					init(conn, pstmt, rs, num); // 게시글번호 정렬
+					init(conn, pstmt, rs); // 게시글번호 정렬
 
 					if (pstmt != null) {
 						pstmt.close();
-					}
-
-					if (pstmt2 != null) {
-						rs.close();
 					}
 
 					if (conn != null) {
@@ -376,7 +368,7 @@ public class EnterDAO {
 		}
 	}
 
-	public void init(Connection conn, PreparedStatement pstmt, ResultSet rs, String num) throws SQLException {
+	public void init(Connection conn, PreparedStatement pstmt, ResultSet rs) throws SQLException {
 
 		int count = 0;
 		String sql = "select count(*) as 'count' from enter";
@@ -414,10 +406,9 @@ public class EnterDAO {
 
 			String sqlList[] = { "ALTER TABLE enter_comment AUTO_INCREMENT=1", "SET @CNT = 0",
 					"UPDATE enter_comment SET enter_comment.num = @CNT:=@CNT+1",
-					"ALTER TABLE enter_comment AUTO_INCREMENT=" + (count + 1),
-					"UPDATE enter_comment SET enter_no = enter_no - 1 where enter_no > " + num };
+					"ALTER TABLE enter_comment AUTO_INCREMENT=" + (count + 1)};
 
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 4; i++) {
 				pstmt = conn.prepareStatement(sqlList[i]);
 				pstmt.executeUpdate();
 			}
