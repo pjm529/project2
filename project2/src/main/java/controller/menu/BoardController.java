@@ -69,6 +69,8 @@ public class BoardController extends HttpServlet {
 			
 			title = XssReplace(title);
 			content = XssReplace(content);
+			writer = XssReplace(writer);
+			writer_id = XssReplace(writer_id);
 			
 			BoardVO boardVO = new BoardVO(title, content, writer, writer_id);
 			
@@ -140,6 +142,8 @@ public class BoardController extends HttpServlet {
 			
 			title = XssReplace(title);
 			content = XssReplace(content);
+			writer = XssReplace(writer);
+			writer_id = XssReplace(writer_id);
 			
 			BoardVO boardVO = new BoardVO(num, title, content, writer, writer_id, null);
 			boardDAO.modBoard(boardVO);
@@ -155,6 +159,9 @@ public class BoardController extends HttpServlet {
 			String comment = request.getParameter("comment_text");
 			String board_no = request.getParameter("board_no");
 			
+			comment = XssReplace(comment);
+			writer_id = XssReplace(writer_id);
+			writer = XssReplace(writer);
 			
 			BoardCommentVO boardCommentVO = new BoardCommentVO(null, comment, writer, writer_id, board_no, null);
 			

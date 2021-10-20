@@ -72,7 +72,9 @@ public class EnterController extends HttpServlet {
 			
 			title = XssReplace(title);
 			content = XssReplace(content);
-
+			writer = XssReplace(writer);
+			writer_id = XssReplace(writer_id);
+			
 			String hashpw = SHA256.encodeSha256(pw);
 			EnterVO enterVO = new EnterVO(title, content, writer, writer_id, hashpw);
 
@@ -154,7 +156,9 @@ public class EnterController extends HttpServlet {
 			
 			title = XssReplace(title);
 			content = XssReplace(content);
-
+			writer = XssReplace(writer);
+			writer_id = XssReplace(writer_id);
+			
 			EnterVO enterVO = new EnterVO(num, title, content, writer, writer_id, null);
 			enterDAO.modEnter(enterVO);
 			String pw_text = (String) session.getAttribute("pw_text");
@@ -168,6 +172,10 @@ public class EnterController extends HttpServlet {
 			String writer = request.getParameter("writer");
 			String comment = request.getParameter("comment_text");
 			String enter_no = request.getParameter("enter_no");
+					
+			comment = XssReplace(comment);
+			writer_id = XssReplace(writer_id);
+			writer = XssReplace(writer);
 
 			EnterCommentVO enterCommentVO = new EnterCommentVO(null, comment, writer, writer_id, enter_no, null);
 

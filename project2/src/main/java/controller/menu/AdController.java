@@ -69,6 +69,8 @@ public class AdController extends HttpServlet {
 			
 			title = XssReplace(title);
 			content = XssReplace(content);
+			writer = XssReplace(writer);
+			writer_id = XssReplace(writer_id);
 			
 			AdVO adVO = new AdVO(title, content, writer, writer_id);
 			
@@ -123,6 +125,8 @@ public class AdController extends HttpServlet {
 			
 			title = XssReplace(title);
 			content = XssReplace(content);
+			writer = XssReplace(writer);
+			writer_id = XssReplace(writer_id);
 			
 			AdVO adVO = new AdVO(num, title, content, writer, writer_id, null);
 			adDAO.modAd(adVO);
