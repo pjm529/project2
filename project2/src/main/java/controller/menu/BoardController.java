@@ -67,6 +67,9 @@ public class BoardController extends HttpServlet {
 			String writer = request.getParameter("writer");
 			String writer_id = request.getParameter("writer_id");
 			
+			title = XssReplace(title);
+			content = XssReplace(content);
+			
 			BoardVO boardVO = new BoardVO(title, content, writer, writer_id);
 			
 			boardDAO.addBoard(boardVO);
@@ -135,6 +138,9 @@ public class BoardController extends HttpServlet {
 			String writer = request.getParameter("writer");
 			String writer_id = request.getParameter("writer_id");
 			
+			title = XssReplace(title);
+			content = XssReplace(content);
+			
 			BoardVO boardVO = new BoardVO(num, title, content, writer, writer_id, null);
 			boardDAO.modBoard(boardVO);
 			
@@ -178,6 +184,19 @@ public class BoardController extends HttpServlet {
 		
 		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage); 
 		dispatch.forward(request, response);
+	}
+	
+	public static String XssReplace(String str) {
+		
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("\"", "&quot;");
+		str = str.replaceAll("'", "&apos;");
+		str = str.replaceAll("<", "&lt;");
+		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("\r", "<br>");
+		str = str.replaceAll("\n", "<p>");
+
+		return str;
 	}
 
 }

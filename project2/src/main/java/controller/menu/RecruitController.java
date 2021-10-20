@@ -16,7 +16,7 @@ import model.menu.RecruitVO;
 import service.menu.RecruitDAO;
 
 @WebServlet("/recruit/*")
-public class Recruitcontroller extends HttpServlet {
+public class RecruitController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	RecruitDAO recruitDAO;

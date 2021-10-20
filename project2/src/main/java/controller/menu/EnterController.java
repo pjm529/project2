@@ -69,6 +69,9 @@ public class EnterController extends HttpServlet {
 			String writer = request.getParameter("writer");
 			String writer_id = request.getParameter("writer_id");
 			String pw = request.getParameter("pw");
+			
+			title = XssReplace(title);
+			content = XssReplace(content);
 
 			String hashpw = SHA256.encodeSha256(pw);
 			EnterVO enterVO = new EnterVO(title, content, writer, writer_id, hashpw);
@@ -148,6 +151,9 @@ public class EnterController extends HttpServlet {
 			String content = request.getParameter("content");
 			String writer = request.getParameter("writer");
 			String writer_id = request.getParameter("writer_id");
+			
+			title = XssReplace(title);
+			content = XssReplace(content);
 
 			EnterVO enterVO = new EnterVO(num, title, content, writer, writer_id, null);
 			enterDAO.modEnter(enterVO);
@@ -189,4 +195,16 @@ public class EnterController extends HttpServlet {
 		dispatch.forward(request, response);
 	}
 
+	public static String XssReplace(String str) {
+		
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("\"", "&quot;");
+		str = str.replaceAll("'", "&apos;");
+		str = str.replaceAll("<", "&lt;");
+		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("\r", "<br>");
+		str = str.replaceAll("\n", "<p>");
+
+		return str;
+	}
 }

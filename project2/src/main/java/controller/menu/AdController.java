@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.mysql.jdbc.StringUtils;
+
 import model.menu.AdVO;
 import service.menu.AdDAO;
 
@@ -65,6 +67,9 @@ public class AdController extends HttpServlet {
 			String writer = request.getParameter("writer");
 			String writer_id = request.getParameter("writer_id");
 			
+			title = XssReplace(title);
+			content = XssReplace(content);
+			
 			AdVO adVO = new AdVO(title, content, writer, writer_id);
 			
 			adDAO.addAd(adVO);
@@ -116,6 +121,9 @@ public class AdController extends HttpServlet {
 			String writer = request.getParameter("writer");
 			String writer_id = request.getParameter("writer_id");
 			
+			title = XssReplace(title);
+			content = XssReplace(content);
+			
 			AdVO adVO = new AdVO(num, title, content, writer, writer_id, null);
 			adDAO.modAd(adVO);
 			
@@ -131,5 +139,20 @@ public class AdController extends HttpServlet {
 		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage); 
 		dispatch.forward(request, response);
 	}
+	
+	public static String XssReplace(String str) {
+		
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("\"", "&quot;");
+		str = str.replaceAll("'", "&apos;");
+		str = str.replaceAll("<", "&lt;");
+		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("\r", "<br>");
+		str = str.replaceAll("\n", "<p>");
+
+		return str;
+	}
 
 }
+
+	
