@@ -155,7 +155,7 @@
                         </h4>
 
                         <span>
-                            <input id="email" name="email" type="text" autocomplete="off">
+                            <input id="email" name="email" type="text" autocomplete="off" maxlength="20">
                         </span>
                         
                         <span>
@@ -314,6 +314,52 @@
             let day = document.getElementById("day");
             let gender = document.getElementById("gender");
             
+
+            $("#id").bind("keyup",function(){
+            	 let re = /[ \{\}\[\]\/?.,;:|\)*~`!^\-+┼<>@\#$%&\'\"\\\(\=]/gi;
+            	 let temp=$("#id").val();
+            	 
+            	 if(re.test(temp)){ //특수문자가 포함되면 삭제하여 값으로 다시셋팅
+            		 $("#id").val(temp.replace(re,"")); 
+            	 } 
+           	});
+            	 
+            $("#name").bind("keyup",function(){
+	           	let re = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi;
+	           	let temp=$("#name").val();
+	           	 
+	           	if(re.test(temp)){ //특수문자가 포함되면 삭제하여 값으로 다시셋팅
+	           		$("#name").val(temp.replace(re,""));
+	           	} 
+          	});            
+	           	
+	           	
+          	$("#phone").on("keyup", function() {
+          		$(this).val( $(this).val().replace(/[^0-9-]/gi,"") );
+          	});
+          	
+          	$("#year").on("keyup", function() {
+          		$(this).val( $(this).val().replace(/[^0-9-]/gi,"") );
+          	});
+          	
+          	$("#email").bind("keyup",function(){
+	           	let re = /[ \{\}\[\]\/?.,;:|\)*~`!^\+┼<>@\#$%&\'\"\\\(\=]/gi;
+	           	let temp=$("#email").val();
+	           	
+	           	if(re.test(temp)){ //특수문자가 포함되면 삭제하여 값으로 다시셋팅
+	           		$("#email").val(temp.replace(re,"")); 
+	           	} 
+          	});
+	           	
+          	$("#email_domain").bind("keyup",function(){
+          		let re = /[ \{\}\[\]\/?,;:|\)*~`!^\-_+┼<>\#$%&\'\"\\\(\=]/gi;
+	           	let temp=$("#email_domain").val();
+	           	
+	           	if(re.test(temp)){ //특수문자가 포함되면 삭제하여 값으로 다시셋팅
+	           		$("#email_domain").val(temp.replace(re,"")); 
+	           	} 
+          	});    
+
             $("#email_domain2").change(function(){
         		if($(this).val() =='1') {
         			$("#email_domain").val('');
@@ -338,7 +384,6 @@
             });
 
             $("#btn").click(function () {
-            	
             	
             	//id 중복 체크
             	let id1 = $("#id").val();
