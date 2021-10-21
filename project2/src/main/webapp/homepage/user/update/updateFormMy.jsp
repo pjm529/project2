@@ -134,7 +134,7 @@
                         </h4>
 
                         <span>
-                            <input id="phone" name="phone" type="text" autocomplete="off" value=${memInfo.phone }>
+                            <input id="phone" name="phone" type="text" autocomplete="off" value=${memInfo.phone } maxlength="11">
                         </span>
 
                         <div class="err_phone">
@@ -190,7 +190,8 @@
                         </h4>
 
                         <span>
-                            <input id="year" name="year" type="text" autocomplete="off" placeholder="년 (4자리)" value=${memInfo.year }>
+                            <input id="year" name="year" type="text" autocomplete="off" placeholder="년 (4자리)" 
+                            value=${memInfo.year } maxlength="4">
                         </span>
 
                         <span>
@@ -315,6 +316,41 @@
             let month = document.getElementById("month");
             let day = document.getElementById("day");
             let gender = document.getElementById("gender");
+            $("#name").bind("keyup",function(){
+	           	let re = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi;
+	           	let temp=$("#name").val();
+	           	 
+	           	if(re.test(temp)){ //특수문자가 포함되면 삭제하여 값으로 다시셋팅
+	           		$("#name").val(temp.replace(re,""));
+	           	} 
+          	});            
+	           	
+	           	
+          	$("#phone").on("keyup", function() {
+          		$(this).val( $(this).val().replace(/[^0-9-]/gi,"") );
+          	});
+          	
+          	$("#year").on("keyup", function() {
+          		$(this).val( $(this).val().replace(/[^0-9-]/gi,"") );
+          	});
+          	
+          	$("#email").bind("keyup",function(){
+	           	let re = /[ \{\}\[\]\/?.,;:|\)*~`!^\+┼<>@\#$%&\'\"\\\(\=]/gi;
+	           	let temp=$("#email").val();
+	           	
+	           	if(re.test(temp)){ //특수문자가 포함되면 삭제하여 값으로 다시셋팅
+	           		$("#email").val(temp.replace(re,"")); 
+	           	} 
+          	});
+	           	
+          	$("#email_domain").bind("keyup",function(){
+          		let re = /[ \{\}\[\]\/?,;:|\)*~`!^\-_+┼<>\#$%&\'\"\\\(\=]/gi;
+	           	let temp=$("#email_domain").val();
+	           	
+	           	if(re.test(temp)){ //특수문자가 포함되면 삭제하여 값으로 다시셋팅
+	           		$("#email_domain").val(temp.replace(re,"")); 
+	           	} 
+          	});
             
             $("#email_domain2").change(function(){
         		if($(this).val() =='1') {
