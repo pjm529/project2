@@ -335,11 +335,11 @@
 	           	
 	           	
           	$("#phone").on("keyup", function() {
-          		$(this).val( $(this).val().replace(/[^0-9-]/gi,"") );
+          		$(this).val( $(this).val().replace(/[^0-9]/gi,"") );
           	});
           	
           	$("#year").on("keyup", function() {
-          		$(this).val( $(this).val().replace(/[^0-9-]/gi,"") );
+          		$(this).val( $(this).val().replace(/[^0-9]/gi,"") );
           	});
           	
           	$("#email").bind("keyup",function(){
