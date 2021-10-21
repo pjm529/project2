@@ -88,9 +88,10 @@
 				<table id="board" align="center">
 	                <tr id="title">
 	                    <td style="width: 100px;"><b>번호</b></td>
-	                    <td style="width: 700px;"><b>제목</b></td>
-	                    <td style="width: 130px;"><b>작성자</b></td>
-	                    <td style="width: 130px;"><b>등록일</b></td>
+	                    <td style="width: 680px;"><b>제목</b></td>
+	                    <td style="width: 100px;"><b>작성자</b></td>
+	                    <td style="width: 80px;"><b>조회수</b></td>
+	                    <td style="width: 100px;"><b>등록일</b></td>
 	                </tr>
 	
 	                
@@ -116,6 +117,12 @@
 							<div class="hide">
 								${board.writer }
 							</div> 
+						</td>
+						
+						<td>
+							<div>
+								${board.views }
+							</div>
 						</td>
 						
 						<td>

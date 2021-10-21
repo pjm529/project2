@@ -78,8 +78,9 @@ public class BoardDAO {
 				String writer = rs.getString("writer");
 				String writer_id = rs.getString("writer_id");
 				String reg_date = rs.getString("reg_date").substring(0, 10);
+				String views = rs.getString("views");
 
-				BoardVO boardVO = new BoardVO(num, title, content, writer, writer_id, reg_date, comment);
+				BoardVO boardVO = new BoardVO(num, title, content, writer, writer_id, reg_date, comment, views);
 
 				boardList.add(boardVO);
 			}
@@ -195,8 +196,13 @@ public class BoardDAO {
 
 			String sql = "select * from board where num=" + _num;
 			String sql2 = null;
+			String sql3 = "update board set views = views + 1 where num=" + _num;
 
 			PreparedStatement pstmt2 = null;
+			
+			PreparedStatement pstmt3 = conn.prepareStatement(sql3);
+			pstmt3.executeUpdate();
+			
 			ResultSet rs2 = null;
 
 			pstmt = conn.prepareStatement(sql);
@@ -221,8 +227,9 @@ public class BoardDAO {
 				String writer = rs.getString("writer");
 				String writer_id = rs.getString("writer_id");
 				String reg_date = rs.getString("reg_date").substring(0, 10);
+				String views = rs.getString("views");
 
-				boardInfo = new BoardVO(num, title, content, writer, writer_id, reg_date, comment);
+				boardInfo = new BoardVO(num, title, content, writer, writer_id, reg_date, comment, views);
 
 				if (pstmt != null) {
 					pstmt.close();
@@ -237,11 +244,15 @@ public class BoardDAO {
 				}
 
 				if (pstmt2 != null) {
-					pstmt.close();
+					pstmt2.close();
 				}
 
 				if (rs2 != null) {
-					rs.close();
+					rs2.close();
+				}
+				
+				if (pstmt3 != null) {
+					pstmt3.close();
 				}
 
 			}

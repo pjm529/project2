@@ -61,8 +61,9 @@ public class RecruitDAO {
 				String writer = rs.getString("writer");
 				String writer_id = rs.getString("writer_id");
 				String reg_date = rs.getString("reg_date").substring(0, 10);
+				String views = rs.getString("views");
 
-				RecruitVO recruitVO = new RecruitVO(num, title, content, writer, writer_id, reg_date);
+				RecruitVO recruitVO = new RecruitVO(num, title, content, writer, writer_id, reg_date, views);
 
 				recruitList.add(recruitVO);
 			}
@@ -129,8 +130,12 @@ public class RecruitDAO {
 			conn = ds.getConnection();
 
 			String sql = "select * from recruit where num=" + _num;
+			String sql2 = "update recruit set views = views + 1 where num=" + _num;
 
 			pstmt = conn.prepareStatement(sql);
+			
+			PreparedStatement pstmt2 = conn.prepareStatement(sql2);
+			pstmt2.executeUpdate();
 
 			rs = pstmt.executeQuery();
 
@@ -153,6 +158,10 @@ public class RecruitDAO {
 
 				if (pstmt != null) {
 					pstmt.close();
+				}
+				
+				if (pstmt2 != null) {
+					pstmt2.close();
 				}
 
 				if (rs != null) {

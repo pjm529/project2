@@ -61,8 +61,9 @@ public class NoticeDAO {
 				String writer = rs.getString("writer");
 				String writer_id = rs.getString("writer_id");
 				String reg_date = rs.getString("reg_date").substring(0, 10);
+				String views = rs.getString("views");
 
-				NoticeVO noticeVO = new NoticeVO(num, title, content, writer, writer_id, reg_date);
+				NoticeVO noticeVO = new NoticeVO(num, title, content, writer, writer_id, reg_date, views);
 
 				noticeList.add(noticeVO);
 			}
@@ -122,9 +123,13 @@ public class NoticeDAO {
 			conn = ds.getConnection();
 
 			String sql = "select * from notice where num=" + _num;
+			String sql2 = "update notice set views = views + 1 where num=" + _num;
 
 			pstmt = conn.prepareStatement(sql);
-
+			
+			PreparedStatement pstmt2 = conn.prepareStatement(sql2);
+			pstmt2.executeUpdate();
+			
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -134,11 +139,16 @@ public class NoticeDAO {
 				String writer = rs.getString("writer");
 				String writer_id = rs.getString("writer_id");
 				String reg_date = rs.getString("reg_date").substring(0, 10);
+				String views = rs.getString("views");
 
-				noticeInfo = new NoticeVO(num, title, content, writer, writer_id, reg_date);
+				noticeInfo = new NoticeVO(num, title, content, writer, writer_id, reg_date, views);
 
 				if (pstmt != null) {
 					pstmt.close();
+				}
+				
+				if (pstmt2 != null) {
+					pstmt2.close();
 				}
 
 				if (rs != null) {

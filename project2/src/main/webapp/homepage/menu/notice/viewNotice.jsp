@@ -66,6 +66,7 @@
                         <tr>
                             <td><b>번호</b></td>
                             <td><b>작성자</b></td>
+                            <td><b>조회수</b></td>
                             <td><b>등록일</b></td>
                         </tr>
                     </table>
@@ -74,6 +75,7 @@
                         <tr>
                             <td>${noticeInfo.num }</td>
                             <td>${noticeInfo.writer }</td>
+                            <td>${noticeInfo.views }</td>
                             <td>${noticeInfo.reg_date }</td>
                         </tr>
                     </table>

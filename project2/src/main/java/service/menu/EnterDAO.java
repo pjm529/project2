@@ -240,11 +240,11 @@ public class EnterDAO {
 				}
 
 				if (pstmt2 != null) {
-					pstmt.close();
+					pstmt2.close();
 				}
 
 				if (rs2 != null) {
-					rs.close();
+					rs2.close();
 				}
 
 			}

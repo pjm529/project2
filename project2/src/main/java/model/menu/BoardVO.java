@@ -8,6 +8,7 @@ public class BoardVO {
 	private String writer_id;
 	private String reg_date;
 	private String comment;
+	private String views;
 	
 	public BoardVO() {
 		System.out.println("MemberVO 생성자");
@@ -42,6 +43,29 @@ public class BoardVO {
 		this.comment = comment;
 	}
 	
+	
+	
+	public BoardVO(String num, String title, String content, String writer, String writer_id, String reg_date,
+			String comment, String views) {
+		super();
+		this.num = num;
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.writer_id = writer_id;
+		this.reg_date = reg_date;
+		this.comment = comment;
+		this.views = views;
+	}
+
+	public String getViews() {
+		return views;
+	}
+
+	public void setViews(String views) {
+		this.views = views;
+	}
+
 	public String getComment() {
 		return comment;
 	}

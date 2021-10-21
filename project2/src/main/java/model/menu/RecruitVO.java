@@ -13,6 +13,7 @@ public class RecruitVO {
 	private String location;
 	private String professor;
 	private String reg_date;
+	private String views;
 	
 	public RecruitVO() {
 		System.out.println("MemberVO 생성자");
@@ -27,6 +28,18 @@ public class RecruitVO {
 		this.writer = writer;
 		this.writer_id = writer_id;
 		this.reg_date = reg_date;
+	}
+	
+	public RecruitVO(String num, String title, String content, String writer, String writer_id, String reg_date,
+			String views) {
+		super();
+		this.num = num;
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.writer_id = writer_id;
+		this.reg_date = reg_date;
+		this.views = views;
 	}
 
 
@@ -62,8 +75,37 @@ public class RecruitVO {
 		this.reg_date = reg_date;
 	}
 
-
 	
+	public RecruitVO(String num, String title, String content, String writer, String writer_id, String training_period,
+			String recruit_period, String time, String count, String location, String professor, String reg_date,
+			String views) {
+		super();
+		this.num = num;
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.writer_id = writer_id;
+		this.training_period = training_period;
+		this.recruit_period = recruit_period;
+		this.time = time;
+		this.count = count;
+		this.location = location;
+		this.professor = professor;
+		this.reg_date = reg_date;
+		this.views = views;
+	}
+
+
+	public String getViews() {
+		return views;
+	}
+
+
+	public void setViews(String views) {
+		this.views = views;
+	}
+
+
 	public String getTraining_period() {
 		return training_period;
 	}

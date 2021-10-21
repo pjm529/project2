@@ -65,6 +65,7 @@
                         <tr>
                             <td><b>번호</b></td>
                             <td><b>작성자</b></td>
+                            <td><b>조회수</b></td>
                             <td><b>등록일</b></td>
                         </tr>
                     </table>
@@ -73,6 +74,7 @@
                         <tr>
                             <td>${processInfo.num }</td>
                             <td>${processInfo.writer }</td>
+                            <td>${processInfo.views }</td>
                             <td>${processInfo.reg_date }</td>
                         </tr>
                     </table>

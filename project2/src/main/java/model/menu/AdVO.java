@@ -7,6 +7,7 @@ public class AdVO {
 	private String writer;
 	private String writer_id;
 	private String reg_date;
+	private String views;
 	
 	public AdVO() {
 		System.out.println("MemberVO 생성자");
@@ -28,6 +29,29 @@ public class AdVO {
 		this.writer = writer;
 		this.writer_id = writer_id;
 		this.reg_date = reg_date;
+	}
+	
+	
+
+	public AdVO(String num, String title, String content, String writer, String writer_id, String reg_date,
+			String views) {
+		super();
+		this.num = num;
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.writer_id = writer_id;
+		this.reg_date = reg_date;
+		this.views = views;
+	}
+
+	
+	public String getViews() {
+		return views;
+	}
+
+	public void setViews(String views) {
+		this.views = views;
 	}
 
 	public String getReg_date() {

@@ -65,6 +65,7 @@
                         <tr>
                             <td><b>번호</b></td>
                             <td><b>작성자</b></td>
+                            <td><b>조회수</b></td>
                             <td><b>등록일</b></td>
                         </tr>
                     </table>
@@ -72,6 +73,7 @@
                         <tr>
                             <td>${adInfo.num }</td>
                             <td>${adInfo.writer }</td>
+                            <td>${adInfo.views }</td>
                             <td>${adInfo.reg_date }</td>
                         </tr>
                     </table>
