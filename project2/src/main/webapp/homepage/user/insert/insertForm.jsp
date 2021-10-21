@@ -160,7 +160,7 @@
                         
                         <span>
                             <input id="email_domain" name="email_domain" type="text" autocomplete="off"
-                             readonly value="@google.com">
+                             readonly value="@google.com" maxlength="20">
                         </span>
                         
                         <span>

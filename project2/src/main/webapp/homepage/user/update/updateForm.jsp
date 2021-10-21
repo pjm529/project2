@@ -117,12 +117,12 @@
                         </h4>
 
                         <span>
-                            <input id="email" name="email" type="text" autocomplete="off" value=${memInfo.email }>
+                            <input id="email" name="email" type="text" autocomplete="off" value=${memInfo.email } maxlength="20">
                         </span>
                         
                         <span>
                             <input id="email_domain" name="email_domain" type="text" autocomplete="off"
-                             readonly value=${memInfo.email_domain }>
+                             readonly value=${memInfo.email_domain } maxlength="20">
                         </span>
                         
                         <span>
