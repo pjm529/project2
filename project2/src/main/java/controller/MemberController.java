@@ -165,7 +165,8 @@ public class MemberController extends HttpServlet {
 			String sessNum = request.getParameter("sessNum");
 			memberDAO.delMember(num, sessId, sessNum);
 
-			nextPage = "/homepage/logProcess/logout.jsp";
+			session.invalidate();
+			nextPage = "/homepage/index.jsp";
 
 		} else {
 
