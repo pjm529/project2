@@ -94,6 +94,19 @@
             // form에 있는 정보 받아오기
             let name = document.getElementById("name");
             let phone = document.getElementById("phone");
+            
+            $("#name").bind("keyup",function(){
+	           	let re = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi;
+	           	let temp=$("#name").val();
+	           	 
+	           	if(re.test(temp)){ //특수문자가 포함되면 삭제하여 값으로 다시셋팅
+	           		$("#name").val(temp.replace(re,""));
+	           	} 
+          	});
+	           	
+          	$("#phone").on("keyup", function() {
+          		$(this).val( $(this).val().replace(/[^0-9]/gi,"") );
+          	});   	
          
 
             $("#btn").on({
