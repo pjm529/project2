@@ -160,7 +160,7 @@ public class MemberController extends HttpServlet {
 			String sessNum = request.getParameter("sessNum");
 			memberDAO.delMember(num, sessId, sessNum);
 
-			nextPage = "/member/listMembers";
+			nextPage = "/homepage/user/delete/del_success.jsp";
 
 		} else if (action.equals("/delMy")) {
 
