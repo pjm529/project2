@@ -56,7 +56,7 @@
         	
         	
         	<div id="search">
-        		<form action="board.jsp" method="get">
+        		<form action="/project2/enter/listBoard" method="get">
 	        		<table>
 	        			<tr>
 	        				<td>
