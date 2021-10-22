@@ -64,83 +64,90 @@
 			</table>
 		</form>
 	</div>
-	
-	<table id="userList" border="1">
-	
-		<tr>
-			<td><b>회원번호</b></td>
-			<td><b>아이디</b></td>
-			<td><b>이름</b></td>
-			<td><b>휴대전화</b></td>
-			<td><b>이메일</b></td>
-			<td><b>생년월일</b></td>
-			<td><b>성별</b></td>
-			<td><b>가입일</b></td>
-		</tr>
+	<c:if test="${not empty membersList}">  
+		<table id="userList" border="1">
 		
-		
-			<c:forEach var="mem" items="${membersList }">
-				<tr>
-					<td>
-						<div style="width:80px;">
-							${mem.num }
-						</div>
-					</td>
+					<tr>
+						<td><b>회원번호</b></td>
+						<td><b>아이디</b></td>
+						<td><b>이름</b></td>
+						<td><b>휴대전화</b></td>
+						<td><b>이메일</b></td>
+						<td><b>생년월일</b></td>
+						<td><b>성별</b></td>
+						<td><b>가입일</b></td>
+					</tr>
+				
+				<c:forEach var="mem" items="${membersList }">
 					
-					<td>
-						<div style="width: 150px">
-							<a href="/project2/member/viewMember?num=${mem.num }">
-								${mem.id }</a>
-						</div>			
-					</td>
-					
-					<td>
-						<div style="width: 150px;">
-							${mem.name }
-						</div> 
-					</td>
-					
-					<td>
-						<div style="width: 150px;">
-							${mem.phone}
-						</div> 
-					</td>
-					
-					<td>
-						<div style="width: 200px;">
-							${mem.email}${mem.email_domain }
-						</div> 
-					</td>
-					
-					<td>
-						<div style="width: 100px;">
-							${mem.year }${mem.month }${mem.day }
-						</div> 
-					</td>
-					
-					<td>
-						<div style="width: 80px;">
-							<c:if test="${mem.gender  == 'male'}">
-								남
-							</c:if>
+					<tr>
+						<td>
+							<div style="width:80px;">
+								${mem.num }
+							</div>
+						</td>
 						
-							<c:if test="${mem.gender  == 'female'}">
-								여
-							</c:if>
-						</div> 
-					</td>
-					
-					<td>
-						<div style="width: 170px;">
-							${mem.reg_date }
-						</div>
-					</td>
-				</tr>
-			</c:forEach>
+						<td>
+							<div style="width: 150px">
+								<a href="/project2/member/viewMember?num=${mem.num }">
+									${mem.id }</a>
+							</div>			
+						</td>
+						
+						<td>
+							<div style="width: 150px;">
+								${mem.name }
+							</div> 
+						</td>
+						
+						<td>
+							<div style="width: 150px;">
+								${mem.phone}
+							</div> 
+						</td>
+						
+						<td>
+							<div style="width: 200px;">
+								${mem.email}${mem.email_domain }
+							</div> 
+						</td>
+						
+						<td>
+							<div style="width: 100px;">
+								${mem.year }${mem.month }${mem.day }
+							</div> 
+						</td>
+						
+						<td>
+							<div style="width: 80px;">
+								<c:if test="${mem.gender  == 'male'}">
+									남
+								</c:if>
+							
+								<c:if test="${mem.gender  == 'female'}">
+									여
+								</c:if>
+							</div> 
+						</td>
+						
+						<td>
+							<div style="width: 170px;">
+								${mem.reg_date }
+							</div>
+						</td>
+					</tr>
+				</c:forEach>
 
-		
-		
-	</table>
+		</table>
+	
+	</c:if>
+	
+	<c:if test="${empty membersList}">
+		<div id="not_search">
+			<h1>검색결과 없음</h1>
+		</div>
+		  
+	</c:if>
 	
 	<script>
 	    $("#search_btn").on({

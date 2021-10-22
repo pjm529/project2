@@ -41,5 +41,13 @@ body {
 }
 
 #header{
-	margin-left: 41%;
+	width: 1132px; 
+	margin-left: 20%;
+	text-align: center;
+}
+
+#not_search{
+	width: 1132px; 
+	margin-left: 20%;
+	text-align: center;
 }
