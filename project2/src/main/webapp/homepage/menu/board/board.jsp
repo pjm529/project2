@@ -56,7 +56,7 @@
         	
         	
         	<div id="search">
-        		<form action="/project2/enter/listBoard" method="get">
+        		<form action="/project2/board/listBoard" method="get">
 	        		<table>
 	        			<tr>
 	        				<td>
