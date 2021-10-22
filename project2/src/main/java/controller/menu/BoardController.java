@@ -167,7 +167,7 @@ public class BoardController extends HttpServlet {
 			
 			boardCommentDAO.addComment(boardCommentVO);
 			
-			nextPage = "/board/viewBoard?num=" + board_no;
+			nextPage = "/homepage/menu/board/comment_add_success.jsp?num=" + board_no;
 		
 		}  else if(action.equals("/delComment")) {
 			
@@ -179,7 +179,7 @@ public class BoardController extends HttpServlet {
 			String result = boardCommentDAO.delComment(num, sessId, comment_writer_id);
 			
 			if(result.equals("true")) {
-				nextPage = "/board/viewBoard?num=" + board_no;
+				nextPage = "/homepage/menu/board/comment_del_success.jsp?num=" + board_no;
 			} else {
 				nextPage = "/board/viewBoardFail?num=" + board_no;
 			}

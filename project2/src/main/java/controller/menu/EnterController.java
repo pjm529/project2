@@ -181,7 +181,7 @@ public class EnterController extends HttpServlet {
 
 			enterCommentDAO.addComment(enterCommentVO);
 
-			nextPage = "/enter/viewEnter?num=" + enter_no;
+			nextPage = "/homepage/menu/board/comment_add_success.jsp?num=" + enter_no;
 
 		} else if (action.equals("/delComment")) {
 
@@ -192,7 +192,7 @@ public class EnterController extends HttpServlet {
 
 			enterCommentDAO.delComment(num, sessId, comment_writer_id);
 
-			nextPage = "/enter/viewEnter?num=" + enter_no;
+			nextPage = "/homepage/menu/board/comment_del_success.jsp?num=" + enter_no;
 
 		} else {
 
