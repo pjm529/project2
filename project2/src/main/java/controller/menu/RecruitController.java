@@ -68,14 +68,22 @@ public class RecruitController extends HttpServlet {
 			String location = request.getParameter("location");
 			String professor = request.getParameter("professor");
 			
-			RecruitVO recruitVO = new RecruitVO(title, content, writer, writer_id, training_period, recruit_period
-					, time, count, location, professor);
-			
-			recruitDAO.addRecruit(recruitVO);
-			
-			List<RecruitVO> recruitList = recruitDAO.listRecruits(null, null);
-			request.setAttribute("recruitList", recruitList);
-			nextPage = "/homepage/menu/recruit/recruit.jsp";
+			if (writer_id.equals("admin")) {
+
+				RecruitVO recruitVO = new RecruitVO(title, content, writer, writer_id, training_period, recruit_period,
+						time, count, location, professor);
+
+				recruitDAO.addRecruit(recruitVO);
+
+				List<RecruitVO> recruitList = recruitDAO.listRecruits(null, null);
+				request.setAttribute("recruitList", recruitList);
+				nextPage = "/homepage/menu/recruit/recruit.jsp";
+
+			} else {
+
+				nextPage = "/error/error404.jsp";
+
+			}
 			
 		} else if(action.equals("/recruitForm")) {
 			
@@ -126,14 +134,22 @@ public class RecruitController extends HttpServlet {
 			String location = request.getParameter("location");
 			String professor = request.getParameter("professor");
 			
-			RecruitVO recruitVO = new RecruitVO(num, title, content, writer, writer_id, training_period, recruit_period
-					, time, count, location, professor, null);
-			
-			recruitDAO.modRecruit(recruitVO);
-			
-			RecruitVO recruitInfo = recruitDAO.findRecruit(num);
-			request.setAttribute("recruitInfo", recruitInfo);
-			nextPage = "/homepage/menu/recruit/viewRecruit.jsp";
+			if (writer_id.equals("admin")) {
+
+				RecruitVO recruitVO = new RecruitVO(num, title, content, writer, writer_id, training_period,
+						recruit_period, time, count, location, professor, null);
+
+				recruitDAO.modRecruit(recruitVO);
+
+				RecruitVO recruitInfo = recruitDAO.findRecruit(num);
+				request.setAttribute("recruitInfo", recruitInfo);
+				nextPage = "/homepage/menu/recruit/viewRecruit.jsp";
+
+			} else {
+
+				nextPage = "/error/error404.jsp";
+
+			}
 	
 		} else {
 				

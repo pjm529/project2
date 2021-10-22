@@ -17,7 +17,7 @@ import service.menu.NoticeDAO;
 
 @WebServlet("/notice/*")
 public class NoticeController extends HttpServlet {
-	
+
 	private static final long serialVersionUID = 1L;
 	NoticeDAO noticeDAO;
 
@@ -37,96 +37,115 @@ public class NoticeController extends HttpServlet {
 		doHandle(request, response, session);
 	}
 
-	private void doHandle(HttpServletRequest request, HttpServletResponse response, HttpSession session) 
+	private void doHandle(HttpServletRequest request, HttpServletResponse response, HttpSession session)
 			throws ServletException, IOException {
-		
+
 		String nextPage = null;
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		
+
 		String action = request.getPathInfo(); // URL에서 요청명을 가져옴.
-		
-		if(action == null || action.equals("/listNotice")) { // 최초 요청이거나 listMembers.do일때
-			
-			 String search_select = request.getParameter("search_select");
-			 String search_text = request.getParameter("search_text");
-			
+
+		if (action == null || action.equals("/listNotice")) { // 최초 요청이거나 listMembers.do일때
+
+			String search_select = request.getParameter("search_select");
+			String search_text = request.getParameter("search_text");
+
 			List<NoticeVO> noticeList = noticeDAO.listNotices(search_select, search_text);
-			
+
 			request.setAttribute("noticeList", noticeList);
 			nextPage = "/homepage/menu/notice/notice.jsp";
-			
-		} else if(action.equals("/addNotice")) {
-				
+
+		} else if (action.equals("/addNotice")) {
+
 			String title = request.getParameter("title");
 			String content = request.getParameter("content");
 			String writer = request.getParameter("writer");
-			String writer_id = (String)session.getAttribute("id");
-			
-			NoticeVO noticeVO = new NoticeVO(title, content, writer, writer_id);
-			
-			noticeDAO.addNotice(noticeVO);
-			
-			List<NoticeVO> noticeList = noticeDAO.listNotices(null, null);
-			request.setAttribute("noticeList", noticeList);
-			nextPage = "/homepage/menu/notice/notice.jsp";
-			
-		} else if(action.equals("/noticeForm")) {
-			
-			nextPage = "/homepage/menu/notice/insertForm.jsp";
-			
-		} else if(action.equals("/viewNotice")) {
-			
-			String num = request.getParameter("num");
-			NoticeVO noticeInfo = noticeDAO.findNotice(num);
-			
-			request.setAttribute("noticeInfo", noticeInfo);
-			
-			nextPage = "/homepage/menu/notice/viewNotice.jsp";
-			
-		} else if(action.equals("/delNotice")) {
-			
-			String num = request.getParameter("num");
-			String sessId = (String)session.getAttribute("id");
-			String writer_id = request.getParameter("writer_id");
-			
-			noticeDAO.delNotice(num, sessId, writer_id);
-			
+			String writer_id = (String) session.getAttribute("id");
+
+			if (writer_id.equals("admin")) {
+				NoticeVO noticeVO = new NoticeVO(title, content, writer, writer_id);
+
+				noticeDAO.addNotice(noticeVO);
+
+				List<NoticeVO> noticeList = noticeDAO.listNotices(null, null);
+				request.setAttribute("noticeList", noticeList);
+				nextPage = "/homepage/menu/notice/notice.jsp";
+
+			} else {
+
+				nextPage = "/error/error404.jsp";
+
+			}
+
 			List<NoticeVO> noticeList = noticeDAO.listNotices(null, null);
 			request.setAttribute("noticeList", noticeList);
 			nextPage = "/homepage/menu/notice/notice.jsp";
 
-		} else if(action.equals("/modNoticeForm")) {
-			
+		} else if (action.equals("/noticeForm")) {
+
+			nextPage = "/homepage/menu/notice/insertForm.jsp";
+
+		} else if (action.equals("/viewNotice")) {
+
 			String num = request.getParameter("num");
 			NoticeVO noticeInfo = noticeDAO.findNotice(num);
-			
+
+			request.setAttribute("noticeInfo", noticeInfo);
+
+			nextPage = "/homepage/menu/notice/viewNotice.jsp";
+
+		} else if (action.equals("/delNotice")) {
+
+			String num = request.getParameter("num");
+			String sessId = (String) session.getAttribute("id");
+			String writer_id = request.getParameter("writer_id");
+
+			noticeDAO.delNotice(num, sessId, writer_id);
+
+			List<NoticeVO> noticeList = noticeDAO.listNotices(null, null);
+			request.setAttribute("noticeList", noticeList);
+			nextPage = "/homepage/menu/notice/notice.jsp";
+
+		} else if (action.equals("/modNoticeForm")) {
+
+			String num = request.getParameter("num");
+			NoticeVO noticeInfo = noticeDAO.findNotice(num);
+
 			request.setAttribute("noticeInfo", noticeInfo);
 			request.setAttribute("writer_id", noticeInfo.getWriter_id());
-			
+
 			nextPage = "/homepage/menu/notice/updateForm.jsp";
-			
-		} else if(action.equals("/modNotice")) {
-			
+
+		} else if (action.equals("/modNotice")) {
+
 			String num = request.getParameter("num");
 			String title = request.getParameter("title");
 			String content = request.getParameter("content");
 			String writer = request.getParameter("writer");
-			String writer_id = request.getParameter("writer_id");
-			
-			NoticeVO noticeVO = new NoticeVO(num, title, content, writer, writer_id, null);
-			noticeDAO.modNotice(noticeVO);
-			
-			NoticeVO noticeInfo = noticeDAO.findNotice(num);
-			request.setAttribute("noticeInfo", noticeInfo);
-			nextPage = "/homepage/menu/notice/viewNotice.jsp";
-	
+			String writer_id = (String) session.getAttribute("id");
+
+			if (writer_id.equals("admin")) {
+
+				NoticeVO noticeVO = new NoticeVO(num, title, content, writer, writer_id, null);
+				noticeDAO.modNotice(noticeVO);
+
+				NoticeVO noticeInfo = noticeDAO.findNotice(num);
+				request.setAttribute("noticeInfo", noticeInfo);
+				nextPage = "/homepage/menu/notice/viewNotice.jsp";
+
+			} else {
+
+				nextPage = "/error/error404.jsp";
+
+			}
+
 		} else {
-				
+
 			nextPage = "/error/error404.jsp";
 		}
-		
-		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage); 
+
+		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
 		dispatch.forward(request, response);
 	}
 
