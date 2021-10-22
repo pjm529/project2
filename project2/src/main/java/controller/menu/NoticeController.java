@@ -101,7 +101,7 @@ public class NoticeController extends HttpServlet {
 
 			List<NoticeVO> noticeList = noticeDAO.listNotices(null, null);
 			request.setAttribute("noticeList", noticeList);
-			nextPage = "/homepage/menu/notice/notice.jsp";
+			nextPage = "/homepage/menu/notice/del_success.jsp";
 
 		} else if (action.equals("/modNoticeForm")) {
 

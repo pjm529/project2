@@ -120,7 +120,7 @@ public class BoardController extends HttpServlet {
 			
 			List<BoardVO> boardList = boardDAO.listBoards(null, null);
 			request.setAttribute("boardList", boardList);
-			nextPage = "/homepage/menu/board/board.jsp";
+			nextPage = "/homepage/menu/board/del_success.jsp";
 
 		} else if(action.equals("/modBoardForm")) {
 			

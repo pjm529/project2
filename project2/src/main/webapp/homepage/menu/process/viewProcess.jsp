@@ -128,7 +128,6 @@
 					result = confirm("게시글을 삭제하시겠습니까?");
                 	
                 	if(result){
-    	                alert("삭제가 완료되었습니다.");
     	                $("form").attr("onsubmit", "return true;");
     	                $("form").attr("action", "/project2/process/delProcess").submit();
                 	}

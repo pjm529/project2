@@ -102,7 +102,7 @@ public class ProcessController extends HttpServlet {
 
 			List<ProcessVO> processList = processDAO.listProcesss(null, null);
 			request.setAttribute("processList", processList);
-			nextPage = "/homepage/menu/process/process.jsp";
+			nextPage = "/homepage/menu/process/del_success.jsp";
 
 		} else if (action.equals("/modProcessForm")) {
 

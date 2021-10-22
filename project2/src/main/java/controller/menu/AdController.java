@@ -103,7 +103,7 @@ public class AdController extends HttpServlet {
 			
 			List<AdVO> adList = adDAO.listAds(null, null);
 			request.setAttribute("adList", adList);
-			nextPage = "/homepage/menu/ad/ad.jsp";
+			nextPage = "/homepage/menu/ad/del_success.jsp";
 
 		} else if(action.equals("/modAdForm")) {
 			

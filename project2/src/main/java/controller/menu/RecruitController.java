@@ -108,7 +108,7 @@ public class RecruitController extends HttpServlet {
 			
 			List<RecruitVO> recruitList = recruitDAO.listRecruits(null, null);
 			request.setAttribute("recruitList", recruitList);
-			nextPage = "/homepage/menu/recruit/recruit.jsp";
+			nextPage = "/homepage/menu/recruit/del_success.jsp";
 
 		} else if(action.equals("/modRecruitForm")) {
 			
