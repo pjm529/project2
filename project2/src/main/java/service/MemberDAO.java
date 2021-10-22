@@ -33,12 +33,20 @@ public class MemberDAO {
 		}
 	}
 
-	public List<MemberVO> listMembers() {
+	public List<MemberVO> listMembers(String search_select, String search_text) {
 		List<MemberVO> membersList = new ArrayList<MemberVO>();
+		
+		if (search_text == null) {
+			search_text = "";
+		}
+
+		if (search_select == null) {
+			search_select = "id";
+		}
 
 		try {
 			conn = ds.getConnection();
-			String sql = "select * from user";
+			String sql = "select * from user where " + search_select + " like '%" + search_text + "%'";
 
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();

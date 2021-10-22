@@ -1,0 +1,45 @@
+a {
+	text-decoration: none;
+}
+
+body {
+	/* text-align:center; */ 
+	background-color: #eee;
+}
+
+#search{
+    width: 1132px; 
+    height: 70px;
+    text-align: center;
+    margin-left: 19.8%;
+    background-color: rgb(240, 240, 240);
+    padding: 10px;
+}
+
+#search_text{
+	width: 775px; 
+	height: 46px;
+	border: 1px solid rgb(214, 214, 214);
+}
+
+#search_btn{
+    height: 50px;
+    width: 155px;
+    background-color: rgb(155, 205, 255);
+    border: none;
+} 
+
+#search_select {
+	border: 1px solid rgb(214, 214, 214);
+	width: 175px; height: 50px;
+}
+
+#userList{
+	background-color: white;
+	margin-left: 20%;
+	text-align: center;
+}
+
+#header{
+	margin-left: 41%;
+}

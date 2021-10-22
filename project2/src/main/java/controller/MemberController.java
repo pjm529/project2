@@ -47,8 +47,12 @@ public class MemberController extends HttpServlet {
 		String action = request.getPathInfo(); // URL에서 요청명을 가져옴.
 
 		if (action == null || action.equals("/listMembers")) { // 최초 요청이거나 listMembers일때
+			
+			String search_select = request.getParameter("search_select");
+			String search_text = request.getParameter("search_text");
 
-			List<MemberVO> membersList = memberDAO.listMembers();
+			List<MemberVO> membersList = memberDAO.listMembers(search_select, search_text);
+			
 			request.setAttribute("membersList", membersList);
 			nextPage = "/homepage/user/viewList/viewUserList.jsp";
 

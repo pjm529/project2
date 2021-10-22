@@ -29,23 +29,43 @@
 <meta charset="UTF-8">
 <title>영남인재교육원 : 회원관리</title>
 </head>
-
-<style>
-	a{
-		text-decoration: none;
-	}
-</style>
-
-<body style="text-align:center; background-color: #eee;">
+<link rel="stylesheet" href="/project2/css/viewUserList.css">
+<script src="/project2/js/jquery-3.6.0.min.js"></script>
+<body>
 	<br>
 	<div id="header">
            <a href="/project2/index"><img src="/project2/images/index/logo.png" id="logo"></a>
-       </div>
+    </div>
 
-       <hr style="width:1200px;">
 
-	<h2><a href="member.jsp" style="color: black">회원목록</a></h2>
-	<table  border="1" align="center" style="background-color: white">
+	<div id="search">
+		<form action="/project2/member/listMembers" method="get">
+			<table>
+				<tr>
+					<td>
+						<span>
+	                		<select id="search_select" name="search_select">
+	                       	 	<option value="id">아이디</option>
+	                       	 	<option value="name">이름</option>
+	                       	 	<option value="phone">휴대전화</option>
+	                    	</select>
+	                	</span>
+	                </td>
+	                
+					<td>
+						<input id="search_text" name="search_text" type="text" autocomplete="off">
+					</td>
+					
+					<td>
+						<button type="submit" id="search_btn"><b>검색</b></button>
+					</td>
+					
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+	<table id="userList" border="1">
 	
 		<tr>
 			<td><b>회원번호</b></td>
@@ -121,6 +141,18 @@
 		
 		
 	</table>
+	
+	<script>
+	    $("#search_btn").on({
+	        "mouseover": function () {
+	            $("#search_btn").css({ "background-color": "rgb(105, 180, 255)" });
+	        },
+	        "mouseleave": function () {
+	            $("#search_btn").css({ "background-color": "rgb(155, 205, 255)" });
+	        }
+	      
+	    });
+    </script>
 	
 </body>
 </html>
