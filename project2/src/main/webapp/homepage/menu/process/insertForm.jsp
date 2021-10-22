@@ -132,7 +132,6 @@
 					if(writer.value.length > 6) {
 						alert("작성자 명은 6글자를 초과할 수 없습니다.");
 					} else {
-						alert("등록이 완료되었습니다.");
 						$("form").attr("onsubmit", "return true;");
 						$("form").attr("action", "/project2/process/addProcess").submit();
 					}

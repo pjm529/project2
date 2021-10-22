@@ -82,7 +82,7 @@ public class EnterController extends HttpServlet {
 
 			List<EnterVO> enterList = enterDAO.listEnters(null, null);
 			request.setAttribute("enterList", enterList);
-			nextPage = "/homepage/menu/enter/enter.jsp";
+			nextPage = "/homepage/menu/enter/add_success.jsp";
 
 		} else if (action.equals("/enterForm")) {
 

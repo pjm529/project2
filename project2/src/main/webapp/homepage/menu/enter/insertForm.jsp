@@ -150,7 +150,6 @@
 						if(pw.value.length > 12) {
 							alert("비밀번호는 12글자 이하로 입력해주세요."); 
 						} else {
-							alert("등록이 완료되었습니다.");
 							$("form").attr("onsubmit", "return true;");
 							$("form").attr("action", "/project2/enter/addEnter").submit();
 						}

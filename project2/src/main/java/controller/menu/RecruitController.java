@@ -77,7 +77,7 @@ public class RecruitController extends HttpServlet {
 
 				List<RecruitVO> recruitList = recruitDAO.listRecruits(null, null);
 				request.setAttribute("recruitList", recruitList);
-				nextPage = "/homepage/menu/recruit/recruit.jsp";
+				nextPage = "/homepage/menu/recruit/add_success.jsp";
 
 			} else {
 
