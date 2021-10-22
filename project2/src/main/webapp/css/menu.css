@@ -175,3 +175,9 @@ hr{
 	background-color: white;
 	z-index:1;
 }
+
+#not_search{
+	width: 1060px; 
+	margin-left: 220px;
+	text-align: center;
+}

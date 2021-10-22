@@ -56,7 +56,7 @@
         	
         	
         	<div id="search">
-        		<form action="/project2/enter/listEnter" method="get">
+        		<form action="/project2/enter/listEnter" method="post">
 	        		<table>
 	        			<tr>
 	        				<td>
@@ -84,6 +84,8 @@
         		
         	<br>
         	
+        	<c:if test="${not empty enterList}">
+        	
 			<div id="board_div">
 				<table id="board" align="center">
 	                <tr id="title">
@@ -92,7 +94,6 @@
 	                    <td style="width: 130px;"><b>작성자</b></td>
 	                    <td style="width: 130px;"><b>등록일</b></td>
 	                </tr>
-	
 	                
 	                <c:forEach var="enter" items="${enterList }">
 	                
@@ -131,10 +132,21 @@
 			    
 				<br>
 				
-				<div id="insert_btn">
-					<button id="add_btn"><b>글 작성</b></button>
-				</div>
-				
+			</div>
+			
+			</c:if>
+			
+			<c:if test="${empty enterList}">
+        	
+        	<br>
+       		<div id="not_search">
+				<h2>검색결과 없음</h2>
+			</div>
+			
+        	</c:if>
+			
+			<div id="insert_btn">
+				<button id="add_btn"><b>글 작성</b></button>
 			</div>
 		
 		    <br>

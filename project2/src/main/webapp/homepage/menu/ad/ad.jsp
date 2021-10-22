@@ -83,7 +83,9 @@
         		
         	<br>
         	
-			<div id="board_div">
+        	<c:if test="${not empty adList}">
+        	
+        	<div id="board_div">
 				<table id="board" align="center">
 	                <tr id="title">
 	                    <td style="width: 100px;"><b>번호</b></td>
@@ -131,16 +133,28 @@
 					</tr>
 					
 	                </c:forEach>
+	                
 			    </table>
 			    
 				<br>
 				
-				<div id="insert_btn">
-					<button id="add_btn"><b>글 작성</b></button>
-				</div>
-				
 			</div>
-		
+			
+        	</c:if>
+        	
+        	<c:if test="${empty adList}">
+        	
+        	<br>
+       		<div id="not_search">
+				<h2>검색결과 없음</h2>
+			</div>
+			
+        	</c:if>
+        	
+			<div id="insert_btn">
+				<button id="add_btn"><b>글 작성</b></button>
+			</div>
+			
 		    <br>
 		        
 		</div>
