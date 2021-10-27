@@ -16,11 +16,6 @@ import service.menu.RecruitDAO;
 public class IntroduceController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	RecruitDAO recruitDAO;
-
-	public void init() throws ServletException {
-		recruitDAO = new RecruitDAO();
-	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
